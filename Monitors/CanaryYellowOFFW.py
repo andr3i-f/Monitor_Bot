@@ -5,7 +5,7 @@ import json
 
 class OffWhiteMonitor:
     """Class to initiate and manage the behavior of this monitor"""
-    def __init__(self, link="https://gallery.canary---yellow.com/", json_file="off_white_cy_data.json"):
+    def __init__(self, link="https://gallery.canary---yellow.com/", json_file="../Data/off_white_cy_data.json"):
         self.link = requests.get(link)
         self.name = "off_white_cy"
         self.file = json_file

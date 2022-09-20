@@ -22,16 +22,16 @@ class Compare:
         if self.set_up_flag:
             # print("SETTING UP")
             self.bot.update_log(f"SETTING UP at {datetime.datetime.now()}")
-            with open(f'{self.monitor.name}_previous_data.json', 'w') as f:
+            with open(f'../Data/{self.monitor.name}_previous_data.json', 'w') as f:
                 json.dump(self.current_items, f, indent=4)
-            with open(f'{self.monitor.name}_previous_data.json', 'r') as f:
+            with open(f'../Data/{self.monitor.name}_previous_data.json', 'r') as f:
                 self.previous_items = json.load(f)
 
             self.set_up_flag = False
 
     def set_up_testing(self):
         if self.set_up_flag:
-            with open(f'{self.monitor.name}_previous_data.json', 'r') as f:
+            with open(f'../Data/{self.monitor.name}_previous_data.json', 'r') as f:
                 self.previous_items = json.load(f)
 
             self.set_up_flag = False

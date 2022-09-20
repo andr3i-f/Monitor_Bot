@@ -1,5 +1,5 @@
 from CompareHandler import Compare
-from CanaryYellowOFFW import OffWhiteMonitor
+from Monitors import CanaryYellowOFFW
 import time
 import pygame
 import sys
@@ -10,7 +10,7 @@ class MonitorMain:
     """Class to manage the behavior and initiations of all monitors"""
     def __init__(self, delay=3):
         self.delay = delay
-        self.off_white = OffWhiteMonitor()
+        self.off_white = CanaryYellowOFFW.OffWhiteMonitor()
         self.comparer = Compare(self.off_white)
 
         # Initializing pygame as current runner handler
