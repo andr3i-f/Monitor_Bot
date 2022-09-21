@@ -37,7 +37,10 @@ class Gui:
                 start = time.time()
                 action_thread.start()
 
-                self.comparer.bot.update_log(f"SETTING UP at {datetime.datetime.now()}")
+                log = "```"
+                log += f"Setting up at: \n{datetime.datetime.now()}"
+                log += "```"
+                self.comparer.bot.update_log(log)
 
                 self.window['-status-'].update("RUNNING", background_color='green')
                 self.window['Run'].update(disabled=True)
@@ -48,7 +51,9 @@ class Gui:
                 action_thread.stop_event.set()
                 end = time.time()
 
-                log = f'ENDING TASK at {datetime.datetime.now()} \nRan for {end - start} seconds.'
+                log = "```"
+                log += f'Ending task at: \n{datetime.datetime.now()} \nRan for {end - start} seconds.'
+                log += "```"
 
                 self.comparer.bot.update_log(log)
                 self.window['-status-'].update("NOT RUNNING", background_color='red')

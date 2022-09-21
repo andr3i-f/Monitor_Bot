@@ -1,6 +1,5 @@
 import json
 from DiscordBot import NotifyBot
-import datetime
 
 
 class Compare:
@@ -48,38 +47,41 @@ class Compare:
         try:
             for idx, item in enumerate(self.current_items):
                 if item != self.previous_items[idx]:
-                    response = None
+
                     if item['NAME'] != self.previous_items[idx]['NAME']:
-                        response = f"{self.previous_items[idx]['NAME']} has changed "
-                        response += f"it's name to: {item['NAME']}"
+                        self.bot.send_alert(f"{item['NAME']} has changed names, "
+                                            f"previous: {self.previous_items[idx]['NAME']}",
+                                            item['LINK'],
+                                            0xf705cb)
 
                     elif item['PRICE'] != self.previous_items[idx]['PRICE']:
-                        response = f"{self.previous_items[idx]['NAME']} has changed "
-                        response += f"it's price to: {item['PRICE']}"
+                        self.bot.send_alert(f"{item['NAME']} has changed prices! Possible restock!",
+                                            item['LINK'],
+                                            0x29e342)
 
                     elif item['IN-STOCK'] != self.previous_items[idx]['IN-STOCK']:
                         if item['IN-STOCK'].lower() == 'buy':
-                            response = f"{self.previous_items[idx]['NAME']} has restocked!"
+                            self.bot.send_alert(f"{item['NAME']} has restocked!",
+                                                item['LINK'],
+                                                0xedf500)
 
                     elif item['LINK'] != self.previous_items[idx]['LINK']:
-                        response = f"{self.previous_items[idx]['NAME']} has changed "
-                        response += f"it's link to {item['LINK']}"
-
-                    if response:
-                        self.bot.send_alert(response)
+                        self.bot.send_alert(f"{item['NAME']} has changed links! New link below!",
+                                            item['LINK'],
+                                            0x006ef5)
 
         except IndexError:
-            response = None
             if len(self.current_items) > len(self.previous_items):
                 # Something was added
+                name_list = [i['NAME'] for i in self.previous_items]
+                link_list = [i['LINK'] for i in self.previous_items]
                 for item in self.current_items:
-                    if item not in self.previous_items:
-                        response = f"{item['NAME']} has just been added!"
-                        response += f"\nLink: {item['LINK']}"
+                    if item['NAME'] not in name_list and item['LINK'] not in link_list:
+                        self.bot.send_alert(f"{item['NAME']} has just been added!",
+                                            item['LINK'],
+                                            0xf50000)
 
             elif len(self.current_items) < len(self.previous_items):
                 # Something was removed
                 pass
 
-            if response:
-                self.bot.send_alert(response)
