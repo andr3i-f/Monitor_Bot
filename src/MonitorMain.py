@@ -1,9 +1,7 @@
 from CompareHandler import Compare
 from Monitors import CanaryYellowOFFW
-import time
-import pygame
-import sys
-import datetime
+from Threads import ActionThread
+from GUI import GuiMain
 
 
 class MonitorMain:
@@ -13,27 +11,16 @@ class MonitorMain:
         self.off_white = CanaryYellowOFFW.OffWhiteMonitor()
         self.comparer = Compare(self.off_white)
 
-        # Initializing pygame as current runner handler
-        pygame.init()
-        self.screen = pygame.display.set_mode((500, 500))
-        pygame.display.set_caption("Online Monitor by Andrei F")
+        self.action_thread = ActionThread.Action(1, "Thread1",
+                                                 self.off_white,
+                                                 self.comparer,
+                                                 True, self.delay)
+
+        # Initializing gui
+        self.gui = GuiMain.Gui(self.action_thread, self.comparer)
 
     def run(self):
-        start = time.time()
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    end = time.time()
-
-                    log = f'ENDING TASK at {datetime.datetime.now()} \nRan for {end-start} seconds.'
-                    self.comparer.bot.update_log(log)
-
-                    sys.exit()
-
-            print("Checking . . .")
-            self.off_white.find_shoes()
-            self.comparer.handler()
-            time.sleep(self.delay)
+        self.gui.run()
 
 
 def main():
