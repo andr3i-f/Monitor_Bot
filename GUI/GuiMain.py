@@ -20,7 +20,7 @@ class Gui:
 
         sg.theme('DarkBlue2')
 
-        self.window = sg.Window("Monitors by Andre1", self.layout, size=(250, 250))
+        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 150))
 
     def run(self):
         start = 0
