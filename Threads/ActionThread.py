@@ -3,7 +3,7 @@ import time
 
 
 class Action(threading.Thread):
-    def __init__(self, thread_id, name, monitor, comparer, flag, delay=3):
+    def __init__(self, thread_id, name, monitor, comparer, delay=3):
         super(Action, self).__init__()
         self.thread_id = thread_id
         self.name = name
@@ -24,7 +24,7 @@ class Action(threading.Thread):
             self.monitor.find_shoes()
             self.comparer.handler()
             time.sleep(self.delay)
-
+        print(self.is_alive())
         print(f"Exiting thread: {self.name}")
 
 

@@ -21,7 +21,6 @@ class Compare:
         """Initializes the first time set up"""
         if self.set_up_flag:
             # print("SETTING UP")
-            self.bot.update_log(f"SETTING UP at {datetime.datetime.now()}")
             with open(f'../Data/{self.monitor.name}_previous_data.json', 'w') as f:
                 json.dump(self.current_items, f, indent=4)
             with open(f'../Data/{self.monitor.name}_previous_data.json', 'r') as f:
