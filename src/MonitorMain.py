@@ -11,13 +11,16 @@ class MonitorMain:
         self.off_white = CanaryYellowOFFW.OffWhiteMonitor()
         self.comparer = Compare(self.off_white)
 
+        self.active_monitors = [self.off_white.name]
+
         self.action_thread = ActionThread.Action(1, "Thread1",
                                                  self.off_white,
                                                  self.comparer,
                                                  True, self.delay)
 
         # Initializing gui
-        self.gui = GuiMain.Gui(self.action_thread, self.comparer)
+        self.gui = GuiMain.Gui(self.action_thread, self.comparer,
+                               self.active_monitors)
 
     def run(self):
         self.gui.run()
