@@ -18,5 +18,9 @@ class DiscordNotify:
         embed_var = discord.Embed(title=title, description=desc, color=color)
         self.webhook_alert.send(embed=embed_var)
 
+    def broadcast(self, title, desc, color=0x00ffff):
+        embed_var = discord.Embed(title=title, description=desc, color=color)
+        self.webhook_alert.send(embed=embed_var)
+
     def update_log(self, msg="Test"):
         self.webhook_logs.send(msg)

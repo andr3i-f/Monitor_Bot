@@ -14,23 +14,27 @@ class Gui:
         self.layout = [
             [sg.Text("Active Monitors Below")],
             [sg.Text("\n".join(active_monitors))],
-            [sg.Text("STATUS"), sg.Text("NOT RUNNING", key="-status-",
-                                        background_color='red')],
+            [sg.Text("Broadcast a message:"), sg.InputText(key="broadcastMSG")],
+            [sg.Text("STATUS"), sg.Text("NOT RUNNING", key="-status-", background_color='red')],
             [sg.Button("Run"), sg.Button("Stop", disabled=True), sg.Exit(button_text='Exit')]]
 
         sg.theme('DarkBlue2')
 
-        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 150))
+        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 150), finalize=True)
+        self.window['broadcastMSG'].bind("<Return>", "_Enter")
 
     def run(self):
         start = 0
         action_thread = None
         while True:
             event, values = self.window.read()
-            print(event, values)
+            # print(event, values)
 
             if event in (sg.WIN_CLOSED, "Exit"):
                 break
+
+            if event == "broadcastMSG" + "_Enter" and values['broadcastMSG']:
+                self.comparer.bot.broadcast("Developer Update", values['broadcastMSG'])
 
             if event == "Run":
                 action_thread = ActionThread.Action(1, "Thread1", self.monitor, self.comparer, self.delay)
