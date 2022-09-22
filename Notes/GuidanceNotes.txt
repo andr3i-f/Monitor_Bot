@@ -2,5 +2,3 @@ Use multiple user-agents to use the requests module
 https://serpapi.com/blog/how-to-reduce-chance-of-being-blocked-while-web/#:~:text=The%20reason%20why%20request%20might,lot%20of%20requests%20being%20sent.
 
 Look for API's
-
-Use discord webhook to send messages
