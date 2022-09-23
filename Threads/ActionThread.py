@@ -1,6 +1,7 @@
 import threading
 import time
 import json
+import sys
 
 
 class Action(threading.Thread):
@@ -27,8 +28,8 @@ class Action(threading.Thread):
                 try:
                     self.monitors[idx].search_wanted_items()
                     self.compares[idx].handler()
-                except json.JSONDecodeError:
-                    pass
+                except json.JSONDecodeError:  # Incase server stops allowing requests, add if-statement to check if 430 error is met from ShopifyMonitor
+                    break
 
             time.sleep(self.delay)
         print(self.is_alive())

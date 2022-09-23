@@ -9,7 +9,7 @@ keywords = ["dunk", "off-white", "off white", "jordan", "jordan retro", "retro",
 
 class MonitorMain:
     """Class to manage the behavior and initiations of all monitors"""
-    def __init__(self, delay=3):
+    def __init__(self, delay=2):
         self.delay = delay
         self.notify_bot = NotifyBot.DiscordNotify()
 

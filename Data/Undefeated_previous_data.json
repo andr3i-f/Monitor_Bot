@@ -1,9 +1,7 @@
 [
     {
         "NAME": "NIKE DUNK HIGH RETRO - WHITE/ BLACK/ TOTALORANGE",
-        "AVAIL_SIZES": [
-            "- / 6.5"
-        ],
+        "AVAIL_SIZES": [],
         "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_nike_dunk-high-retro_DD1399-105.view_1.jpg?v=1642633165",
         "LINK": "https://undefeated.com/products/nike-dunk-high-retro-white-black-totalorange"
     },
@@ -32,8 +30,7 @@
     {
         "NAME": "NIKE DUNK HIGH RETRO PREMIUM - LTSMOKEGREY/ GREYFOG/ SAIL",
         "AVAIL_SIZES": [
-            "- / 8.5",
-            "- / 9"
+            "- / 8.5"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_nike_dunk-high-retro-premium_DQ8800-001.view_1.jpg?v=1660579324",
         "LINK": "https://undefeated.com/products/nike-dunk-high-retro-premium-ltsmokegrey-greyfog-sail"

@@ -67,5 +67,21 @@ class Gui:
                 self.window['Stop'].update(disabled=True)
                 self.window['Exit'].update(disabled=False)
 
+            if True in [val.stop_monitor for val in self.monitors]:
+                action_thread.stop_event.set()
+                end = time.time()
+
+                log = "```"
+                log += "SERVER STOPPED ALLOWING REQUESTS"
+                log += f'\nEnding task at: \n{datetime.datetime.now()} \nRan for {end - start} seconds.'
+                log += "```"
+
+                self.bot.update_log(log)
+                self.window['-status-'].update("NOT RUNNING", background_color='red')
+                self.window['Run'].update(disabled=False)
+                self.window['Stop'].update(disabled=True)
+                self.window['Exit'].update(disabled=False)
+
+
 
 
