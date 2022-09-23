@@ -1,28 +1,17 @@
 [
     {
-        "NAME": "NIKE DUNK HIGH RETRO - WHITE/ BLACK/ TOTALORANGE",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_nike_dunk-high-retro_DD1399-105.view_1.jpg?v=1642633165",
-        "LINK": "https://undefeated.com/products/nike-dunk-high-retro-white-black-totalorange"
-    },
-    {
-        "NAME": "JORDAN AJ 1 RETRO HIGH OG - WHITE/ BLEACHEDCORAL/ BLACK",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_aj-1-retro-high-og_555088-108.view_1.jpg?v=1656712384",
-        "LINK": "https://undefeated.com/products/jordan-aj-1-retro-high-og-white-bleachedcoral-black"
-    },
-    {
-        "NAME": "JORDAN WOMEN'S AJ 1 RETRO HIGH OG - LTIRONORE/ VARSITYRED/ SAIL",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_womens-aj-1-retro-high-og_DJ4891-061.view_1.jpg?v=1658160049",
-        "LINK": "https://undefeated.com/products/jordan-womens-aj-1-retro-high-og-ltironore-varsityred-sail"
+        "NAME": "JORDAN AJ 1 RETRO HIGH OG - VACHETTATAN/ BLACK/ SAIL",
+        "AVAIL_SIZES": [
+            "- / 9"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_aj-1-retro-high-og_555088-202.view_1.jpg?v=1663864686",
+        "LINK": "https://undefeated.com/products/jordan-aj-1-retro-high-og-vachettatan-black-sail"
     },
     {
         "NAME": "JORDAN GS AJ 9 RETRO - BLACK/ UNIVERSITYRED/ PARTICLEGREY/ WHITE",
         "AVAIL_SIZES": [
             "- / 4.5",
-            "- / 6",
-            "- / 7"
+            "- / 6"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_gs-aj-9-retro_302359-060.view_1.jpg?v=1655396573",
         "LINK": "https://undefeated.com/products/jordan-gs-aj-9-retro-black-universityred-particlegrey-white"
@@ -43,18 +32,6 @@
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_womens-aj-1-mid-se_DQ7648-600.view_1.jpg?v=1650037111",
         "LINK": "https://undefeated.com/products/jordan-womens-aj-1-mid-se-gymred-midnightnavy-sail"
-    },
-    {
-        "NAME": "NIKE DUNK LOW RETRO SE - WHITE/ BLACK/ METALLICGOLD",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_nike_dunk-low-retro-se_DR9511-100.view_1.jpg?v=1663862582",
-        "LINK": "https://undefeated.com/products/nike-dunk-low-retro-se-white-black-metallicgold"
-    },
-    {
-        "NAME": "JORDAN WOMEN'S AJ 1 RETRO HIGH OG - WHITE/ BOARDERBLUE",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_jordan_womens-aj-1-retro-high-og_DM9036-104.view_1.jpg?v=1663778938",
-        "LINK": "https://undefeated.com/products/jordan-womens-aj-1-retro-high-og-white-boarderblue"
     },
     {
         "NAME": "NIKE DUNK HIGH RETRO - ORANGE/ DEEPROYALBLUE/ WHITE",
@@ -147,7 +124,6 @@
     {
         "NAME": "JORDAN ESSENTIALS STATEMENT FLEECE HOODIE - SEAFOAM",
         "AVAIL_SIZES": [
-            "- / M",
             "- / L",
             "- / XL",
             "- / XXL"
@@ -167,8 +143,7 @@
             "- / 10.5",
             "- / 11",
             "- / 11.5",
-            "- / 12",
-            "- / 13"
+            "- / 12"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0282/5850/products/footwear_nike_dunk-high-retro_DD1399-600.view_1.jpg?v=1663000465",
         "LINK": "https://undefeated.com/products/nike-dunk-high-retro-darkbeetroot-wolfgrey"

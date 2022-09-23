@@ -9,7 +9,7 @@ keywords = ["dunk", "off-white", "off white", "jordan", "jordan retro", "retro",
 
 class MonitorMain:
     """Class to manage the behavior and initiations of all monitors"""
-    def __init__(self, delay=2):
+    def __init__(self, delay=1):
         self.delay = delay
         self.notify_bot = NotifyBot.DiscordNotify()
 
@@ -18,13 +18,15 @@ class MonitorMain:
         self.undefeated = ShopifyMonitor.Monitor("https://undefeated.com/",
                                                  "Undefeated", keywords)
         self.shoe_palace = ShopifyMonitor.Monitor("https://www.shoepalace.com/", "Shoe-Palace", keywords)
+        self.dtlr = ShopifyMonitor.Monitor("https://www.dtlr.com/", "DTLR", keywords)
 
         self.off_white_comparer = Compare(self.off_white, self.notify_bot)
         self.undefeated_comparer = Compare(self.undefeated, self.notify_bot)
         self.shoe_palace_comparer = Compare(self.shoe_palace, self.notify_bot)
+        self.dtlr_comparer = Compare(self.dtlr, self.notify_bot)
 
-        self.active_monitors = [self.off_white, self.undefeated, self.shoe_palace]
-        self.active_comparer = [self.off_white_comparer, self.undefeated_comparer, self.shoe_palace_comparer]
+        self.active_monitors = [self.off_white, self.undefeated, self.shoe_palace, self.dtlr]
+        self.active_comparer = [self.off_white_comparer, self.undefeated_comparer, self.shoe_palace_comparer, self.dtlr_comparer]
 
         # Initializing gui
         self.gui = GuiMain.Gui(self.active_comparer, self.active_monitors,

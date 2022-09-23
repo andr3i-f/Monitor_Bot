@@ -1,27 +1,21 @@
 [
     {
-        "NAME": "Air Jordan 8 Retro Paprika Infant Toddler Lifestyle Shoes (Black/Red)",
+        "NAME": "Air Jordan 4 Midnight Navy Mens Lifestyle Shoes (White/Blue) Limit One Per Customer",
         "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/ba0c5807f47752cb78aa2ac982e6ad7d.jpg?v=1663880789",
-        "LINK": "https://www.shoepalace.com/products/jordan-do8732-601-air-jordan-8-retro-paprika-infant-toddler-lifestyle-shoes-black-red"
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/04bd20368f58ff305cc90972cc5c26d1_b9635472-58c1-4a08-a3f3-1d2d90418111.jpg?v=1663971128",
+        "LINK": "https://www.shoepalace.com/products/jordan-dh6927-140-air-jordan-4-midnight-navy-mens-lifestyle-shoes-white-blue-limit-one-per-customer"
     },
     {
-        "NAME": "Air Jordan 8 Retro Paprika Preschool Lifestyle Shoes (Black/Red)",
+        "NAME": "Air Jordan 1 Retro High OG Taxi Infant Crib Bootie (Yellow/Black)",
         "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/31e0fe4642cc1d1ff8eebe12a9598e62.jpg?v=1663880727",
-        "LINK": "https://www.shoepalace.com/products/jordan-do8733-601-air-jordan-8-retro-paprika-preschool-lifestyle-shoes-black-red"
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/5326f16bb3ab71195c1ca730e2e71f5d.jpg?v=1663969141",
+        "LINK": "https://www.shoepalace.com/products/jordan-at3745-711-air-jordan-1-retro-high-og-taxi-infant-crib-bootie-yellow-black"
     },
     {
-        "NAME": "Air Jordan 1 Retro High Taxi Infant Toddler Lifestyle Shoes (Black/Yellow)",
+        "NAME": "Air Jordan 12 Retro Hyper Royal Womens Lifestyle Shoes (Black/Blue)",
         "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/20f9e8254692da4dbb5f73d2d60a5731.jpg?v=1663880508",
-        "LINK": "https://www.shoepalace.com/products/jordan-aq2665-711-air-jordan-1-retro-high-taxi-infant-toddler-lifestyle-shoes-black-yellow"
-    },
-    {
-        "NAME": "Air Jordan 4 Retro SE Black Canvas Grade School Lifestyle Shoes (Black/Grey)",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/04bd20368f58ff305cc90972cc5c26d1_15be4061-1984-4db0-b5ff-fd014056d285.jpg?v=1663874954",
-        "LINK": "https://www.shoepalace.com/products/jordan-dv0553-006-air-jordan-4-retro-se-black-canvas-grade-school-lifestyle-shoes-black-grey"
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/04bd20368f58ff305cc90972cc5c26d1_0ec58da7-569f-44af-a187-4eaf4a5bf988.jpg?v=1663967751",
+        "LINK": "https://www.shoepalace.com/products/jordan-ao6068-004-air-jordan-12-retro-hyper-royal-womens-lifestyle-shoes-black-blue"
     },
     {
         "NAME": "Yeezy Slide Resin Mens Sandals (Beige) Limit One Per Customer",
@@ -30,22 +24,84 @@
         "LINK": "https://www.shoepalace.com/products/adidas-fz5904-yeezy-slide-resin-mens-sandals-beige-limit-one-per-customer"
     },
     {
+        "NAME": "Air Jordan 1 High OG Taxi Mens Lifestyle Shoes (Black/Yellow) Limit One Per Customer",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e131c0a8b64903a976e474c1bf7f911b_71c92083-d616-4320-ab55-eb9918189510.jpg?v=1663612940",
+        "LINK": "https://www.shoepalace.com/products/jordan-555088-711-air-jordan-1-high-og-taxi-mens-lifestyle-shoes-black-yellow-limit-one-per-customer"
+    },
+    {
+        "NAME": "Air Jordan 1 High OG Taxi Grade School Lifestyle Shoes (Black/Yellow) Limit One Per Customer",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/77aab57143c9e4cb45e64c7961a9b11a_3820f4e7-7d7b-45f3-abb4-06205644437d.jpg?v=1663783562",
+        "LINK": "https://www.shoepalace.com/products/jordan-575441-711-air-jordan-1-high-og-taxi-grade-school-lifestyle-shoes-black-yellow-limit-one-per-customer"
+    },
+    {
+        "NAME": "Air Jordan 1 Retro High Taxi Infant Toddler Lifestyle Shoes (Black/Yellow)",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/20f9e8254692da4dbb5f73d2d60a5731.jpg?v=1663880508",
+        "LINK": "https://www.shoepalace.com/products/jordan-aq2665-711-air-jordan-1-retro-high-taxi-infant-toddler-lifestyle-shoes-black-yellow"
+    },
+    {
+        "NAME": "Air Jordan 8 Paprika Grade School Lifestyle Shoes (Black/Red)",
+        "AVAIL_SIZES": [
+            "4Y",
+            "4.5Y",
+            "5Y",
+            "5.5Y",
+            "6Y",
+            "6.5Y",
+            "7Y"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/33672ecbbc497356b483b5543075700e.jpg?v=1663612650",
+        "LINK": "https://www.shoepalace.com/products/jordan-do8731-601-air-jordan-8-paprika-grade-school-lifestyle-shoes-black-red"
+    },
+    {
+        "NAME": "Air Jordan 8 Retro Paprika Preschool Lifestyle Shoes (Black/Red)",
+        "AVAIL_SIZES": [
+            "11Y",
+            "12Y",
+            "13Y",
+            "1Y",
+            "2Y",
+            "3Y"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/31e0fe4642cc1d1ff8eebe12a9598e62.jpg?v=1663880727",
+        "LINK": "https://www.shoepalace.com/products/jordan-do8733-601-air-jordan-8-retro-paprika-preschool-lifestyle-shoes-black-red"
+    },
+    {
+        "NAME": "Air Jordan 8 Retro Paprika Infant Toddler Lifestyle Shoes (Black/Red)",
+        "AVAIL_SIZES": [
+            "5C",
+            "6C",
+            "7C",
+            "8C",
+            "9C",
+            "10C"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/ba0c5807f47752cb78aa2ac982e6ad7d.jpg?v=1663880789",
+        "LINK": "https://www.shoepalace.com/products/jordan-do8732-601-air-jordan-8-retro-paprika-infant-toddler-lifestyle-shoes-black-red"
+    },
+    {
+        "NAME": "Air Jordan 4 Retro SE Black Canvas Grade School Lifestyle Shoes (Black/Grey)",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/04bd20368f58ff305cc90972cc5c26d1_15be4061-1984-4db0-b5ff-fd014056d285.jpg?v=1663874954",
+        "LINK": "https://www.shoepalace.com/products/jordan-dv0553-006-air-jordan-4-retro-se-black-canvas-grade-school-lifestyle-shoes-black-grey"
+    },
+    {
         "NAME": "Air Jordan 1 High OG Lost & Found Grade School Lifestyle Shoes (Red/Black) Limit One Per Customer",
         "AVAIL_SIZES": [],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/04bd20368f58ff305cc90972cc5c26d1_d4a20d6a-ceb3-414b-9032-520b49feb072.jpg?v=1663870824",
         "LINK": "https://www.shoepalace.com/products/jordan-fd1437-612-air-jordan-1-high-og-lost-found-grade-school-lifestyle-shoes-red-black-limit-one-per-customer"
     },
     {
-        "NAME": "Air Jordan 8 Paprika Grade School Lifestyle Shoes (Black/Red)",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/33672ecbbc497356b483b5543075700e.jpg?v=1663612650",
-        "LINK": "https://www.shoepalace.com/products/jordan-do8731-601-air-jordan-8-paprika-grade-school-lifestyle-shoes-black-red"
-    },
-    {
         "NAME": "Air Jordan 1 High OG Denim Womens Lifestyle Shoes (Blue/White)",
         "AVAIL_SIZES": [
             "5",
-            "5.5"
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "11.5"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/41c90c4882a824af7c0dbfef71c9f983.jpg?v=1663783952",
         "LINK": "https://www.shoepalace.com/products/jordan-dm9036-104-air-jordan-1-high-og-denim-womens-lifestyle-shoes-blue-white"
@@ -55,17 +111,12 @@
         "AVAIL_SIZES": [
             "11Y",
             "13Y",
-            "1.5Y",
-            "2.5Y"
+            "2Y",
+            "2.5Y",
+            "3Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e4a88e9acec6a18313d1a711f267d6dd.jpg?v=1663271436",
         "LINK": "https://www.shoepalace.com/products/jordan-cu0449-104-air-jordan-1-high-og-denim-preschool-lifestyle-shoes-blue-white"
-    },
-    {
-        "NAME": "Air Jordan 1 High OG Taxi Grade School Lifestyle Shoes (Black/Yellow) Limit One Per Customer",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/77aab57143c9e4cb45e64c7961a9b11a_3820f4e7-7d7b-45f3-abb4-06205644437d.jpg?v=1663783562",
-        "LINK": "https://www.shoepalace.com/products/jordan-575441-711-air-jordan-1-high-og-taxi-grade-school-lifestyle-shoes-black-yellow-limit-one-per-customer"
     },
     {
         "NAME": "Air Jordan 11 Low IE Light Orewood Brown Mens Lifestyle Shoes (Beige/White)",
@@ -86,14 +137,18 @@
         "LINK": "https://www.shoepalace.com/products/jordan-ck9246-067-air-jordan-3-black-gold-womens-lifestyle-shoes-black-brown"
     },
     {
-        "NAME": "Air Jordan 1 High OG Taxi Mens Lifestyle Shoes (Black/Yellow) Limit One Per Customer",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e131c0a8b64903a976e474c1bf7f911b_71c92083-d616-4320-ab55-eb9918189510.jpg?v=1663612940",
-        "LINK": "https://www.shoepalace.com/products/jordan-555088-711-air-jordan-1-high-og-taxi-mens-lifestyle-shoes-black-yellow-limit-one-per-customer"
-    },
-    {
         "NAME": "Air Jordan 1 Low Womens Lifestyle Shoes (Grey/Blue) Free Shipping",
-        "AVAIL_SIZES": [],
+        "AVAIL_SIZES": [
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9"
+        ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/7152eb3661f0e3f9d9ee5ea39679a2fb_cc112765-09fe-440a-a626-8e1c806e19a6.jpg?v=1663777140",
         "LINK": "https://www.shoepalace.com/products/jordan-dc0774-042-air-jordan-1-low-womens-lifestyle-shoes-grey-blue-free-shipping"
     },
@@ -128,7 +183,9 @@
             "4.5Y",
             "5Y",
             "5.5Y",
-            "6Y"
+            "6Y",
+            "6.5Y",
+            "7Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/cfd73f55c0f54b5f6b91f2e50c229de9_75c78fa3-02b9-4e8c-8abf-621f747b5557.jpg?v=1662762833",
         "LINK": "https://www.shoepalace.com/products/jordan-dm0967-160-air-jordan-3-og-fire-red-grade-school-lifestyle-shoes-white-red-free-shipping"
@@ -136,8 +193,11 @@
     {
         "NAME": "Air Jordan 3 Retro OG Fire Red Infant Toddler Shoes (White/Red) Free Shipping",
         "AVAIL_SIZES": [
+            "6C",
             "7C",
-            "9C"
+            "8C",
+            "9C",
+            "10C"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/8735279ae729395de3af54747d20e85c_becf3188-76f6-41e6-aa8a-27d804d1ddb4.jpg?v=1662762929",
         "LINK": "https://www.shoepalace.com/products/jordan-dm0968-160-air-jordan-3-retro-og-fire-red-infant-toddler-shoes-white-red-free-shipping"
@@ -147,6 +207,7 @@
         "AVAIL_SIZES": [
             "11Y",
             "12Y",
+            "13Y",
             "1Y",
             "2Y",
             "3Y"
@@ -167,10 +228,27 @@
             "4.5Y",
             "5Y",
             "5.5Y",
-            "6Y"
+            "6Y",
+            "6.5Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/98ad222697cd3394070c430349efa9fa_005fadf7-1c1c-4841-bc82-97b6691a6e4a.jpg?v=1662143521",
         "LINK": "https://www.shoepalace.com/products/jordan-384665-012-air-jordan-6-retro-georgetown-grade-school-lifestyle-shoes-grey-blue-free-shipping"
+    },
+    {
+        "NAME": "Air Jordan 5 Low x PSG Mens Lifestyle Shoes (Grey/Black) Free Shipping",
+        "AVAIL_SIZES": [
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "13"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/4cfaf62687f99270358906fc717dc387.jpg?v=1663958470",
+        "LINK": "https://www.shoepalace.com/products/jordan-dx6325-204-air-jordan-5-low-x-psg-mens-lifestyle-shoes-grey-black-free-shipping"
     },
     {
         "NAME": "Air Jordan 6 Retro Georgetown Mens Lifestyle Shoes (Grey/Blue) Free Shipping",
@@ -190,12 +268,21 @@
     {
         "NAME": "Dunk High Pink Oxford Womens Lifestyle Shoes (Pink) Free Shipping",
         "AVAIL_SIZES": [
+            "5",
+            "5.5",
             "6",
             "6.5",
             "7",
             "7.5",
             "8",
-            "8.5"
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/f8c9208e1d642dd848e48b8503fd8dff_73f365e3-5a42-45db-bed4-60c292413b92.jpg?v=1663714213",
         "LINK": "https://www.shoepalace.com/products/nike-dd1869-003-dunk-high-pink-oxford-womens-lifestyle-shoes-pink-free-shipping"
@@ -285,7 +372,8 @@
             "7.5",
             "8",
             "8.5",
-            "9"
+            "9",
+            "11"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/1bdad96c657ed2e8fca52ddb6b7cc1d9_5f8f4713-79d2-4e80-96ab-28f116a61456.jpg?v=1662138394",
         "LINK": "https://www.shoepalace.com/products/jordan-dq8426-615-air-jordan-1-mid-cherrywood-red-mens-lifestyle-shoes-grey-red-free-shipping"
@@ -306,7 +394,9 @@
     },
     {
         "NAME": "Air Jordan 12 Retro Stealth Infant Toddler Lifestyle Shoes (Grey/White) Free Shipping",
-        "AVAIL_SIZES": [],
+        "AVAIL_SIZES": [
+            "10C"
+        ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e7fcffaff842adc5c8f31351b93d8d05_f80ba680-1b11-4436-bba0-867166428e22.jpg?v=1661533660",
         "LINK": "https://www.shoepalace.com/products/jordan-850000-015-air-jordan-12-retro-stealth-infant-toddler-lifestyle-shoes-grey-white-free-shipping"
     },
@@ -317,7 +407,8 @@
             "4.5Y",
             "5Y",
             "5.5Y",
-            "6Y"
+            "6Y",
+            "6.5Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/a4b7287676420d298403592b4d446486.jpg?v=1661533612",
         "LINK": "https://www.shoepalace.com/products/jordan-153265-015-air-jordan-12-retro-stealth-grade-school-lifestyle-shoes-grey-white-free-shipping"
@@ -428,7 +519,10 @@
         "AVAIL_SIZES": [
             "8",
             "8.5",
-            "9"
+            "9",
+            "10",
+            "11",
+            "12"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/ef8536e1a2ad2de843def4259ec11cd3_28d006df-18f7-4240-a800-64b525ba7988.jpg?v=1660848108",
         "LINK": "https://www.shoepalace.com/products/jordan-487471-701-air-jordan-14-retro-ginger-mens-lifestyle-shoes-white-orange-free-shipping"
@@ -501,7 +595,7 @@
             "10",
             "10.5",
             "11",
-            "13"
+            "12"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/b32c4429fcf1c087dec22eda9d9fd293.jpg?v=1660585059",
         "LINK": "https://www.shoepalace.com/products/jordan-cu9307-081-air-jordan-7-retro-citrus-mens-lifestyle-shoes-black-free-shipping"
@@ -513,7 +607,8 @@
             "4.5Y",
             "5Y",
             "5.5Y",
-            "6Y"
+            "6Y",
+            "6.5Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/5c0d25be34625fc9f4cd54244c2b0405_27d699a1-4399-49cc-ac03-57c268637227.jpg?v=1660162265",
         "LINK": "https://www.shoepalace.com/products/jordan-440888-141-air-jordan-5-retro-concord-grade-school-lifestyle-shoes-white-purple-free-shipping"
@@ -580,7 +675,9 @@
             "8.5",
             "9",
             "9.5",
-            "10"
+            "10",
+            "10.5",
+            "11"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/0c01062d0c03dc67910b39757667ccb1.jpg?v=1660063694",
         "LINK": "https://www.shoepalace.com/products/jordan-ct8532-008-air-jordan-3-retro-desert-elephant-mens-lifestyle-shoes-black-brown-free-shipping"
@@ -643,6 +740,7 @@
             "13Y",
             "1Y",
             "2Y",
+            "2.5Y",
             "3Y"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/871cbdfeae7f43d3bd7ac7706dcfca59.jpg?v=1662756652",
@@ -766,7 +864,8 @@
     {
         "NAME": "Air Jordan 6 Retro Red Oreo Infant Toddler Lifestyle Shoes (White/Red)",
         "AVAIL_SIZES": [
-            "4C"
+            "4C",
+            "6C"
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/6355f4d8e8c6598c85fa7628183eff0b.jpg?v=1657558757",
         "LINK": "https://www.shoepalace.com/products/jordan-dv3606-162-air-jordan-6-retro-red-oreo-infant-toddler-lifestyle-shoes-white-red"
@@ -786,31 +885,5 @@
         ],
         "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e59d075b9b0bb0c49a089e219438ae78.jpg?v=1655839712",
         "LINK": "https://www.shoepalace.com/products/jordan-384665-162-air-jordan-6-retro-red-oreo-grade-school-lifestyle-shoes-white-red-free-shipping"
-    },
-    {
-        "NAME": "Air Jordan 12 Emoji Infant Toddler Lifestyle Shoes (White/Blue) Free Shipping",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/8227a924b811f75d9da5e7c0f73d989b.jpg?v=1656353191",
-        "LINK": "https://www.shoepalace.com/products/jordan-dq4367-114-air-jordan-12-emoji-infant-toddler-lifestyle-shoes-white-blue-free-shipping"
-    },
-    {
-        "NAME": "Air Jordan 12 Emoji Preschool Lifestyle Shoes (White/Blue) Free Shipping",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/e579950e4e2909fa25656464c9a49d91.jpg?v=1657130003",
-        "LINK": "https://www.shoepalace.com/products/jordan-dq4366-114-air-jordan-12-emoji-preschool-lifestyle-shoes-white-blue-free-shipping"
-    },
-    {
-        "NAME": "Air Jordan 12 Emoji Grade School Lifestyle Shoes (White/Blue) Free Shipping",
-        "AVAIL_SIZES": [
-            "4Y"
-        ],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/4303aab2ad1d5fbf7704e28061ba4622.jpg?v=1656436697",
-        "LINK": "https://www.shoepalace.com/products/jordan-dq4365-114-air-jordan-12-emoji-grade-school-lifestyle-shoes-white-blue-free-shipping"
-    },
-    {
-        "NAME": "Air Jordan 5 Retro Green Bean Preschool Lifestyle Shoes (Grey/Green) Free Shipping",
-        "AVAIL_SIZES": [],
-        "IMG": "https://cdn.shopify.com/s/files/1/0852/3376/products/80a83dcfe3dce66b9006884ed0ad31b1_846ddbcd-b7a5-438d-bd4d-bf38589869e5.jpg?v=1655839566",
-        "LINK": "https://www.shoepalace.com/products/jordan-dq3735-003-air-jordan-5-retro-green-bean-preschool-lifestyle-shoes-grey-green-free-shipping"
     }
 ]

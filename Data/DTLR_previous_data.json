@@ -1,0 +1,614 @@
+[
+    {
+        "NAME": "NIKE  DUNK LOW 'ROSE WHISPER'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Nike-DJ9946-602-W-011.jpg?v=1663969261",
+        "LINK": "https://www.dtlr.com/products/nike-dunk-low-dd1503-118-rose-whisper-white"
+    },
+    {
+        "NAME": "JORDAN FLIGHT REMIX PULLOVER HOODIE",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG",
+            "2XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ7559-680-M-021.jpg?v=1663958097",
+        "LINK": "https://www.dtlr.com/products/jordan-flight-remix-pullover-hoodie-dq7559-680-burgundy"
+    },
+    {
+        "NAME": "JORDAN ESSENTIAL FLEECE PANTS",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG",
+            "2XLG",
+            "3XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ7340-687-M-072.jpg?v=1663957797",
+        "LINK": "https://www.dtlr.com/products/jordan-essential-fleece-pants-dq7340-687-gym-red"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'TAXI'",
+        "AVAIL_SIZES": [
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "11.5",
+            "12",
+            "12.5",
+            "13",
+            "14"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-555088-711-M-152.jpg?v=1663707949",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-555088-711-taxi"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'TAXI' TODDLER",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-AQ2665-711-TD-169.jpg?v=1663708861",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-td-aq2665-711-taxi"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'TAXI' PRE-SCHOOL",
+        "AVAIL_SIZES": [
+            "11",
+            "12",
+            "13",
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-AQ2664-711-PS-002.jpg?v=1663880228",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-ps-aq2664-711-taxi"
+    },
+    {
+        "NAME": "ADIDAS YEEZY SLIDE RESIN",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "16"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Adidas_FZ5904_M-036.jpg?v=1663002810",
+        "LINK": "https://www.dtlr.com/products/adidas-yeezy-slide-resin-fz5904"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'TAXI' INFANT CRIB BOOTIES",
+        "AVAIL_SIZES": [
+            "1",
+            "2",
+            "4"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-AT3745-711-TD-175.jpg?v=1663709219",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-taxi-crib-booties-at3745-711"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'TAXI' GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "4.5",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-575441-711-GS-160.jpg?v=1663707907",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-gs-575441-711-taxi"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 8 RETRO 'PAPRIKA' PRE-SCHOOL",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/DO8733-601.jpg?v=1663612960",
+        "LINK": "https://www.dtlr.com/products/air-jordan-8-retro-ps-do8733-601-paprika"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 8 RETRO 'PAPRIKA' TODDLER",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DO8732-601-TD-210.jpg?v=1663710420",
+        "LINK": "https://www.dtlr.com/products/air-jordan-8-retro-td-do8732-601-paprika"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 8 RETRO 'PAPRIKA' GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DO8731-601-GS-202.jpg?v=1663710320",
+        "LINK": "https://www.dtlr.com/products/air-jordan-8-retro-gs-do8731-601-paprika"
+    },
+    {
+        "NAME": "JORDAN JUMPMAN TWO TREY",
+        "AVAIL_SIZES": [
+            "7.5",
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "12",
+            "13",
+            "14"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DO1925-003-M-006.jpg?v=1663880361",
+        "LINK": "https://www.dtlr.com/products/jordan-jumpman-two-trey-do1925-003-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'DENIM' TODDLER",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/MicrosoftTeams-image_20_27_5adbc3ba-a749-4115-97ac-bb2d95a144a9.jpg?v=1663708693",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-denim-td-cu0450-104-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'DENIM' PRE-SCHOOL",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-CU0449-104-PS-188.jpg?v=1663710062",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-denim-ps-cu0449-104-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 RETRO HIGH OG 'DENIM'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DM9036-104-W-038.jpg?v=1663789723",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-retro-high-og-denim-dm9036-104-white"
+    },
+    {
+        "NAME": "JORDAN '92 GRAPHIC TEE",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG",
+            "2XLG",
+            "3XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DV1431-010-M-080.jpg?v=1663872055",
+        "LINK": "https://www.dtlr.com/products/jordan-92-graphic-tee-dv1431-010-black"
+    },
+    {
+        "NAME": "JORDAN ESSENTIALS FLEECE PULLOVER HOODIE",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ4458-687-W-034.jpg?v=1663784814",
+        "LINK": "https://www.dtlr.com/products/jordan-essentials-fleece-pullover-hoodie-dq4458-687-red"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID",
+        "AVAIL_SIZES": [
+            "5",
+            "6.5"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-BQ6472-700-W-180.jpg?v=1663709601",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-bq6472-700-chutney-taxi-black-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID TODDLER",
+        "AVAIL_SIZES": [
+            "5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-640735-701-TD-165.jpg?v=1663708502",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-td-640735-701-yellow-black"
+    },
+    {
+        "NAME": "JORDAN FLIGHT MVP FULL-ZIP HOODIE",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG",
+            "2XLG",
+            "3XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ7564-011-M-021.jpg?v=1663700408",
+        "LINK": "https://www.dtlr.com/products/jordan-flight-mvp-full-zip-hoodie-dq7564-011-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN RETRO 13",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/jordan_414571-105_m_01_5121a7e2-782a-4cec-8c27-77cdec510b51.jpg?v=1573123502",
+        "LINK": "https://www.dtlr.com/products/jordan-air-jordan-retro-13-lakers-414571-105"
+    },
+    {
+        "NAME": "NIKE DUNK LOW",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/NIKE-DD1503-120-W-025.jpg?v=1663350666",
+        "LINK": "https://www.dtlr.com/products/nike-dunk-low-dd1503-120-white-medium-olive"
+    },
+    {
+        "NAME": "NIKE  DUNK HIGH 'LAKERS'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/NIKE-DD1399-500-M-008.jpg?v=1663350490",
+        "LINK": "https://www.dtlr.com/products/nike-dunk-high-lakers-dd1399-500-court-purple"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID SE CRAFT TODDLER",
+        "AVAIL_SIZES": [
+            "4",
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/JORDAN-DV0437-001-TD-014.jpg?v=1663350077",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-se-craft-td-dv0437-001-black-cement-grey"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW",
+        "AVAIL_SIZES": [
+            "9",
+            "9.5",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/JORDAN-553558-063-M-002.jpg?v=1663349886",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-553558-063-black-fire-red-white"
+    },
+    {
+        "NAME": "JORDAN FLIGHT PULLOVER CREWNECK SWEATSHIRT",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ4474-687-W-038.jpg?v=1663266143",
+        "LINK": "https://www.dtlr.com/products/jordan-flight-pullover-crewneck-sweatshirt-dq4474-687-red"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-553560-063-GS-029.jpg?v=1663092426",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-gs-553560-063-black-fire-red-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID SE TODDLER",
+        "AVAIL_SIZES": [
+            "4",
+            "6",
+            "9",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DX2463100_TD-001.jpg?v=1663003860",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-se-td-dx2463-100-white-blue-orange-green"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW SE CRAFT GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DV0478001_GS-005.jpg?v=1663003566",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-se-craft-gs-dv0478-001-black-cement-grey-light-graphite-sail"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 3 RETRO 'FIRE RED' PRE-SCHOOL",
+        "AVAIL_SIZES": [
+            "11",
+            "12",
+            "13",
+            "1",
+            "2",
+            "3"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DM0966-160-PS-008.jpg?v=1662569459",
+        "LINK": "https://www.dtlr.com/products/air-jordan-3-retro-ps-dm0966-160-fire-red-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 3 RETRO 'FIRE RED' GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DM0967-160-GS-020.jpg?v=1662124988",
+        "LINK": "https://www.dtlr.com/products/air-jordan-3-retro-gs-dm0967-160-white-fire-red-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 3 RETRO 'FIRE RED'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DN3707-160-M-008.jpg?v=1659115417",
+        "LINK": "https://www.dtlr.com/products/air-jordan-3-retro-fire-red-dn3707-160-white-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 3 RETRO 'FIRE RED' TODDLER",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DM0968-160-GS-036.jpg?v=1658345250",
+        "LINK": "https://www.dtlr.com/products/air-jordan-3-retro-td-dm0968-160-fire-red-white"
+    },
+    {
+        "NAME": "NIKE DUNK HI",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/DD1399-105.jpg?v=1662749081",
+        "LINK": "https://www.dtlr.com/products/nike-dunk-hi-dd1399-105"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID PRE-SCHOOL",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-640734-662-PS-007.jpg?v=1662662821",
+        "LINK": "https://www.dtlr.com/products/jordan-aj1-mid-ps-640734-662-coral-chalk-pinksicle"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID PRE-SCHOOL",
+        "AVAIL_SIZES": [
+            "11",
+            "12",
+            "12.5",
+            "1",
+            "1.5",
+            "2",
+            "2.5",
+            "3"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-640734-079-PS-002.jpg?v=1662662579",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-ps-640734-079-black-fire-red-white"
+    },
+    {
+        "NAME": "JORDAN JUMPMAN PRO GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DQ8436061_GS-009.jpg?v=1663003381",
+        "LINK": "https://www.dtlr.com/products/jordan-jumpman-pro-gs-dq8436-061-black-white-red"
+    },
+    {
+        "NAME": "JORDAN JUMPMAN TWO TREY 'USA'",
+        "AVAIL_SIZES": [
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "13"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DO19125102_M-013.jpg?v=1663003267",
+        "LINK": "https://www.dtlr.com/products/jordan-jumpman-two-trey-usa-do1925-102-white-navy-red"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW SE",
+        "AVAIL_SIZES": [
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DN3739060_W-018.jpg?v=1663003141",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-se-dn3739-060-black-taxi-french-blue-fire-red"
+    },
+    {
+        "NAME": "NIKE DUNK HIGH 'NOBLE GREEN'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/DD1399-300.jpg?v=1662644321",
+        "LINK": "https://www.dtlr.com/products/nike-dunk-high-dd1399-300-white-noble-green"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_DC0774042_W-022.jpg?v=1663003021",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-dc0774-042-stealth-white-french-blue"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID",
+        "AVAIL_SIZES": [
+            "5.5",
+            "6",
+            "6.5",
+            "7",
+            "7.5",
+            "8",
+            "10",
+            "11",
+            "12"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/BQ6472-161.jpg?v=1662643600",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-bq6472-161-white-pomegranate"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID",
+        "AVAIL_SIZES": [
+            "11"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-554724-701-M-017.jpg?v=1663091228",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-554724-701-taxi-white-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID",
+        "AVAIL_SIZES": [
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "12.5",
+            "13",
+            "14"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_554724079_M-026.jpg?v=1663002907",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-554724-079-white-black-red"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW GRADE-SCHOOL",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan_553560701_GS-031.jpg?v=1663002786",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-gs-553560-701-taxi-black-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "4.5",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-553560-164-GS-011.jpg?v=1663091256",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-gs-553560-164-white-red-black"
+    },
+    {
+        "NAME": "JORDAN BOYS SIDELINE FLEECE SWEATPANTS GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "SM",
+            "MED",
+            "LG",
+            "XLG"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-95B769-023-Boys-012.jpg?v=1662490962",
+        "LINK": "https://www.dtlr.com/products/jordan-boys-sideline-fleece-sweatpants-gs-95b769-023-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID",
+        "AVAIL_SIZES": [
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "13"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-5547-136-M-002.jpg?v=1662486425",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-554724-136-white"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 6 RETRO 'GEORGETOWN' GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-384665-012-GS-005.jpg?v=1661865066",
+        "LINK": "https://www.dtlr.com/products/air-jordan-6-retro-georgetown-gs-384665-012-midnight-navy-magnet"
+    },
+    {
+        "NAME": "ADIDAS YEEZY BOOST 350 V2 'SLATE'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Adidas-HP7870-M-002.jpg?v=1661530749",
+        "LINK": "https://www.dtlr.com/products/adidas-yeezy-boost-350-v2-hp7870-slate-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 5 RETRO LOW 'PSG'",
+        "AVAIL_SIZES": [
+            "8",
+            "8.5",
+            "9",
+            "9.5",
+            "10",
+            "10.5",
+            "11",
+            "13"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DX6325-204-M-036.jpg?v=1661444469",
+        "LINK": "https://www.dtlr.com/products/air-jordan-5-retro-low-psg-dx6325-204-pumice-game-royal-black"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 6 RETRO 'GEORGETOWN'",
+        "AVAIL_SIZES": [],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-CT8529-012-M-008.jpg?v=1661192826",
+        "LINK": "https://www.dtlr.com/products/air-jordan-6-retro-georgetown-ct8529-012-magnet-college-navy"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 MID PRE-SCHOOL",
+        "AVAIL_SIZES": [
+            "1.5",
+            "2.5",
+            "3"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DR9496-001-PS-042.jpg?v=1662144659",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-mid-ps-dr9496-001-black-dark-concord-new-emerald"
+    },
+    {
+        "NAME": "JORDAN JUMPMAN TWO TREY TODDLER",
+        "AVAIL_SIZES": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/Jordan-DQ8433-001-TD-037.jpg?v=1662144420",
+        "LINK": "https://www.dtlr.com/products/jordan-jumpman-two-trey-td-dq8433-001-black-true-red-dark-concord"
+    },
+    {
+        "NAME": "JORDAN AIR JORDAN 1 LOW GRADE-SCHOOL",
+        "AVAIL_SIZES": [
+            "4.5",
+            "5.5",
+            "6",
+            "6.5",
+            "7"
+        ],
+        "IMG": "https://cdn.shopify.com/s/files/1/0095/4420/4367/products/MicrosoftTeams-image_20_24_0f746326-cf30-487e-8bcf-ac4141a0bbb5.jpg?v=1662142121",
+        "LINK": "https://www.dtlr.com/products/air-jordan-1-low-gs-dr9498-168-white-pinksicle-safety-orange"
+    }
+]

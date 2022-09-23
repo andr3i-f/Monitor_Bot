@@ -24,14 +24,18 @@ class Action(threading.Thread):
         while not self.stop_event.is_set():
             print('Checking')
 
+            if True in [val.stop_monitor for val in self.monitors]:
+                break
+
             for idx in range(len(self.monitors)):
                 try:
                     self.monitors[idx].search_wanted_items()
                     self.compares[idx].handler()
-                except json.JSONDecodeError:  # Incase server stops allowing requests, add if-statement to check if 430 error is met from ShopifyMonitor
+
+                    time.sleep(self.delay)
+                except json.JSONDecodeError:  # Incase server stops allowing requests
                     break
 
-            time.sleep(self.delay)
         print(self.is_alive())
         print(f"Exiting thread: {self.name}")
 

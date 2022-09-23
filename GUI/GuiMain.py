@@ -67,7 +67,7 @@ class Gui:
                 self.window['Stop'].update(disabled=True)
                 self.window['Exit'].update(disabled=False)
 
-            if True in [val.stop_monitor for val in self.monitors]:
+            if True in [val.stop_monitor for val in self.monitors]:   # Incase server stops allowing requests
                 action_thread.stop_event.set()
                 end = time.time()
 
