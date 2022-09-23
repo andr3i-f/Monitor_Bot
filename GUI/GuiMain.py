@@ -5,22 +5,24 @@ from Threads import ActionThread
 
 
 class Gui:
-    def __init__(self, monitor, comparer, active_monitors, delay):
+    def __init__(self, active_compares, active_monitors, delay, bot):
         # initializing other required objects
-        self.monitor = monitor
-        self.comparer = comparer
+        self.compares = active_compares
+        self.monitors = active_monitors
+        self.bot = bot
+
         self.delay = delay
 
         self.layout = [
             [sg.Text("Active Monitors Below")],
-            [sg.Text("\n".join(active_monitors))],
+            [sg.Text("\n".join(i.name for i in self.monitors))],
             [sg.Text("Broadcast a message:"), sg.InputText(key="broadcastMSG")],
             [sg.Text("STATUS"), sg.Text("NOT RUNNING", key="-status-", background_color='red')],
             [sg.Button("Run"), sg.Button("Stop", disabled=True), sg.Exit(button_text='Exit')]]
 
         sg.theme('DarkBlue2')
 
-        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 150), finalize=True)
+        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 200), finalize=True)
         self.window['broadcastMSG'].bind("<Return>", "_Enter")
 
     def run(self):
@@ -34,17 +36,17 @@ class Gui:
                 break
 
             if event == "broadcastMSG" + "_Enter" and values['broadcastMSG']:
-                self.comparer.bot.broadcast("Developer Update", values['broadcastMSG'])
+                self.bot.broadcast("Developer Update", values['broadcastMSG'])
 
             if event == "Run":
-                action_thread = ActionThread.Action(1, "Thread1", self.monitor, self.comparer, self.delay)
+                action_thread = ActionThread.Action(1, "Thread1", self.compares, self.monitors, self.delay)
                 start = time.time()
                 action_thread.start()
 
                 log = "```"
                 log += f"Setting up at: \n{datetime.datetime.now()}"
                 log += "```"
-                self.comparer.bot.update_log(log)
+                self.bot.update_log(log)
 
                 self.window['-status-'].update("RUNNING", background_color='green')
                 self.window['Run'].update(disabled=True)
@@ -59,7 +61,7 @@ class Gui:
                 log += f'Ending task at: \n{datetime.datetime.now()} \nRan for {end - start} seconds.'
                 log += "```"
 
-                self.comparer.bot.update_log(log)
+                self.bot.update_log(log)
                 self.window['-status-'].update("NOT RUNNING", background_color='red')
                 self.window['Run'].update(disabled=False)
                 self.window['Stop'].update(disabled=True)

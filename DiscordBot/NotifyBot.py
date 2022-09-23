@@ -13,9 +13,10 @@ class DiscordNotify:
         self.webhook_alert = discord.SyncWebhook.from_url(self.WEB_HOOK_ALERT)
         self.webhook_logs = discord.SyncWebhook.from_url(self.WEB_HOOK_LOGS)
 
-    def send_alert(self, title, link, color=0xf705cb):
-        desc = f"[LINK]({link})"
-        embed_var = discord.Embed(title=title, description=desc, color=color)
+    def send_alert(self, title, link, desc, img, color=0xf705cb):
+        desc = desc
+        embed_var = discord.Embed(title=title, description=desc, color=color, url=link)
+        embed_var.set_image(url=img)
         self.webhook_alert.send(embed=embed_var)
 
     def broadcast(self, title, desc, color=0x00ffff):
