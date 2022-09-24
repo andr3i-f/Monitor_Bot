@@ -57,11 +57,11 @@ class Monitor:
                             w_item['IMG'] = product['images'][0]['src']
                             w_item['LINK'] = f"{self.url}products/{product['handle']}"
                         except IndexError:
-                            pass
+                            print(f'An item in {self.name} has an issue with "IndexError"')
 
                         self.wanted_items.append(w_item)
                 page += 1
-                time.sleep(.5)  # Delay per each page as half a second is the minimum delay for requests for shopify
+                time.sleep(1)  # Delay per each page as half a second is the minimum delay for requests for shopify
 
             if self.set_up_flag:  # Copies items to previous items when initiating program to be able to compare later
                 self.previous_items = self.wanted_items[:]
@@ -70,8 +70,10 @@ class Monitor:
             # Call for comparison here
             print(len(self.wanted_items), len(self.all_previous_items[idx]))
             self.reset_flag = self.comparer.compare_items(self.wanted_items, self.all_previous_items[idx])
-        if self.set_up_flag:
-            self.set_up_flag = False
 
             if self.reset_flag:
-                self.set_up_flag = True
+                self.all_previous_items[idx] = self.wanted_items[:]
+                self.reset_flag = False
+
+        if self.set_up_flag:
+            self.set_up_flag = False

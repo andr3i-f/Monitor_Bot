@@ -36,7 +36,7 @@ class Action(threading.Thread):
                 if self.stop_event.is_set():
                     break
 
-                print(f"Done with monitor: {monitor.name}")
+                print(f"Done with monitor: {monitor.name}\n")
 
         print(f"Exiting thread: {self.name}")
 
