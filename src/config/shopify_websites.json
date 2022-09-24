@@ -1,14 +1,37 @@
-{
-  "websites": [
-    "https://gallery.canary---yellow.com/",
-    "https://undefeated.com/",
-    "https://www.shoepalace.com/",
-    "https://www.dtlr.com/"
-  ],
-  "names": [
-    "Canary-Yellow",
-    "Undefeated",
-    "Shoe-Palace",
-    "DTLR"
-  ]
-}
+[
+  {
+    "link": "https://www.dtlr.com/",
+    "name": "DTLR",
+    "collections":
+    [
+      "jordan-retro",
+      "nike-footwear"
+    ]
+  },
+  {
+    "link": "https://gallery.canary---yellow.com/",
+    "name": "Canary-Yellow",
+    "collections":
+    [
+      "home"
+    ]
+  },
+  {
+    "link": "https://undefeated.com/",
+    "name": "Undefeated",
+    "collections":
+    [
+      "jordan",
+      "nike"
+    ]
+  },
+  {
+    "link": "https://www.shoepalace.com/",
+    "name": "Shoe-Palace",
+    "collections":
+    [
+      "nike-dunk",
+      "jordan-footwear"
+    ]
+  }
+]

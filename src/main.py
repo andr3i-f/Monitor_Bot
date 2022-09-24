@@ -10,6 +10,7 @@ class MonitorMain:
     def __init__(self):
         self.delay = 1
         self.notify_bot = webhooks.DiscordNotify()
+        self.comparer = Compare(self.notify_bot)
 
         with open("config/shopify_websites.json") as f:
             # Get all websites to monitor from config shopify_websites file
@@ -20,13 +21,15 @@ class MonitorMain:
             keywords = json.load(f)
 
         self.active_monitors = []
-        for idx in range(len(websites['websites'])):
+        for website in websites:
             # Create objects for all the websites in the config file
             self.active_monitors.append(
-                ShopifyMonitor.Monitor(websites['websites'][idx], websites['names'][idx], keywords)
+                ShopifyMonitor.Monitor(website['link'],
+                                       website['name'],
+                                       website['collections'],
+                                       keywords,
+                                       self.comparer)
             )
-
-        self.comparer = Compare(self.notify_bot)
 
         # Initialize gui
         self.gui = gui.Gui(self.comparer, self.active_monitors,

@@ -1,67 +1,77 @@
 import random
 import requests
 import json
+import time
 
 
 class Monitor:
     """Class to initiate and manage the behavior of the monitor"""
-    def __init__(self, url, name, keywords):
+    def __init__(self, url, name, collections, keywords, comparer):
         self.name = name
+        self.collections = collections
+
+        self.comparer = comparer
 
         self.url = url
-        self.json_url = url + "products.json?limit=250"
 
         self.keywords = keywords
 
         self.wanted_items = []
         self.previous_items = []
 
+        self.all_previous_items = []
+
         self.set_up_flag = True
+        self.reset_flag = False
+
         self.stop_monitor = False
 
-        self.user_agents = [
-        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83 Safari/537.1',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
-    ]
+        with open('config/user_agents.json') as f:
+            self.user_agents = json.load(f)
 
     def search_wanted_items(self):
         """Adds all the products that has a key-word in its title"""
-        headers = {'User-Agent' : random.choice(self.user_agents)}
-        req_url = requests.get(self.json_url, headers=headers)
+        for idx, collection in enumerate(self.collections):
+            self.wanted_items = []
+            page = 1
 
-        if req_url.status_code == 430:
-            self.stop_monitor = True
+            while True:  # Will go through all the pages a shopify website has to offer
+                headers = {'User-Agent': random.choice(self.user_agents)}
+                req_url = requests.get(f"{self.url}/collections/{collection}/"
+                                       f"products.json?limit=250&page={page}", headers=headers)
 
-        print(req_url)
-        all_products = json.loads(req_url.text)['products']
-        self.wanted_items = []
+                all_products = json.loads(req_url.text)['products']
 
-        for product in all_products:
-            w_item = {}
-            if any(substring in product['title'].lower() for substring in self.keywords):
-                w_item['NAME'] = product['title']
-                w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
-                w_item['IMG'] = product['images'][0]['src']
-                w_item['LINK'] = f"{self.url}products/{product['handle']}"
+                if req_url.status_code == 430:
+                    self.stop_monitor = True
 
-                self.wanted_items.append(w_item)
+                if not all_products:  # Checks if we reached a page that doesn't have products
+                    break
 
-        if self.set_up_flag:  # Copies wanted_items to previous items when initiating program to be able to compare them
-            self.previous_items = self.wanted_items[:]
+                for product in all_products:
+                    w_item = {}
+                    if any(substring in product['title'].lower() for substring in self.keywords):
+                        try:
+                            w_item['NAME'] = product['title']
+                            w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
+                            w_item['IMG'] = product['images'][0]['src']
+                            w_item['LINK'] = f"{self.url}products/{product['handle']}"
+                        except IndexError:
+                            pass
+
+                        self.wanted_items.append(w_item)
+                page += 1
+                time.sleep(.5)  # Delay per each page as half a second is the minimum delay for requests for shopify
+
+            if self.set_up_flag:  # Copies items to previous items when initiating program to be able to compare later
+                self.previous_items = self.wanted_items[:]
+                self.all_previous_items.append(self.previous_items)
+
+            # Call for comparison here
+            print(len(self.wanted_items), len(self.all_previous_items[idx]))
+            self.reset_flag = self.comparer.compare_items(self.wanted_items, self.all_previous_items[idx])
+        if self.set_up_flag:
             self.set_up_flag = False
+
+            if self.reset_flag:
+                self.set_up_flag = True

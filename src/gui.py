@@ -39,7 +39,7 @@ class Gui:
                 self.bot.broadcast("Developer Update", values['broadcastMSG'])
 
             if event == "Run":
-                action_thread = ActionThread.Action(1, "Thread1", self.comparer, self.monitors, self.delay)
+                action_thread = ActionThread.Action(1, "Thread1", self.monitors, self.delay)
                 start = time.time()
                 action_thread.start()
 

@@ -4,13 +4,12 @@ import json
 
 
 class Action(threading.Thread):
-    def __init__(self, thread_id, name, comparer, monitors, delay=3):
+    def __init__(self, thread_id, name, monitors, delay=3):
         super(Action, self).__init__()
         self.thread_id = thread_id
         self.name = name
 
         self.monitors = monitors
-        self.comparer = comparer
         self.delay = delay
 
         self.daemon = True
@@ -29,13 +28,16 @@ class Action(threading.Thread):
             for monitor in self.monitors:
                 try:
                     monitor.search_wanted_items()
-                    self.comparer.compare_items(monitor)
-                    time.sleep(self.delay)
 
                 except json.JSONDecodeError:  # Incase server stops allowing requests
+                    print('blocked')
+                    self.stop_event.set()
+
+                if self.stop_event.is_set():
                     break
 
-        print(self.is_alive())
+                print(f"Done with monitor: {monitor.name}")
+
         print(f"Exiting thread: {self.name}")
 
 
