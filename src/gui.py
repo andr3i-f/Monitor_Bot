@@ -1,13 +1,13 @@
 import PySimpleGUI as sg
 import time
 import datetime
-from Threads import ActionThread
+import ActionThread
 
 
 class Gui:
-    def __init__(self, active_compares, active_monitors, delay, bot):
+    def __init__(self, comparer, active_monitors, delay, bot):
         # initializing other required objects
-        self.compares = active_compares
+        self.comparer = comparer
         self.monitors = active_monitors
         self.bot = bot
 
@@ -39,7 +39,7 @@ class Gui:
                 self.bot.broadcast("Developer Update", values['broadcastMSG'])
 
             if event == "Run":
-                action_thread = ActionThread.Action(1, "Thread1", self.compares, self.monitors, self.delay)
+                action_thread = ActionThread.Action(1, "Thread1", self.comparer, self.monitors, self.delay)
                 start = time.time()
                 action_thread.start()
 

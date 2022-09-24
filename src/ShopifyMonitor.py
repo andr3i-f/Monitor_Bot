@@ -7,11 +7,15 @@ class Monitor:
     """Class to initiate and manage the behavior of the monitor"""
     def __init__(self, url, name, keywords):
         self.name = name
-        self.file = f"../Data/{self.name}_current_data.json"
+
         self.url = url
         self.json_url = url + "products.json?limit=250"
+
         self.keywords = keywords
+
         self.wanted_items = []
+        self.previous_items = []
+
         self.set_up_flag = True
         self.stop_monitor = False
 
@@ -57,3 +61,7 @@ class Monitor:
                 w_item['LINK'] = f"{self.url}products/{product['handle']}"
 
                 self.wanted_items.append(w_item)
+
+        if self.set_up_flag:  # Copies wanted_items to previous items when initiating program to be able to compare them
+            self.previous_items = self.wanted_items[:]
+            self.set_up_flag = False

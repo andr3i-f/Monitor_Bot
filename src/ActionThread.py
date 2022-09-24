@@ -1,17 +1,16 @@
 import threading
 import time
 import json
-import sys
 
 
 class Action(threading.Thread):
-    def __init__(self, thread_id, name, compares, monitors, delay=3):
+    def __init__(self, thread_id, name, comparer, monitors, delay=3):
         super(Action, self).__init__()
         self.thread_id = thread_id
         self.name = name
 
         self.monitors = monitors
-        self.compares = compares
+        self.comparer = comparer
         self.delay = delay
 
         self.daemon = True
@@ -27,12 +26,12 @@ class Action(threading.Thread):
             if True in [val.stop_monitor for val in self.monitors]:
                 break
 
-            for idx in range(len(self.monitors)):
+            for monitor in self.monitors:
                 try:
-                    self.monitors[idx].search_wanted_items()
-                    self.compares[idx].handler()
-
+                    monitor.search_wanted_items()
+                    self.comparer.compare_items(monitor)
                     time.sleep(self.delay)
+
                 except json.JSONDecodeError:  # Incase server stops allowing requests
                     break
 
