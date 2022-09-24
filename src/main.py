@@ -20,6 +20,10 @@ class MonitorMain:
             # Get all keywords that monitors will use
             keywords = json.load(f)
 
+        with open("config/unwanted.json") as f:
+            # Get all unwanted words that monitors will not include
+            unwanted = json.load(f)
+
         self.active_monitors = []
         for website in websites:
             # Create objects for all the websites in the config file
@@ -27,7 +31,7 @@ class MonitorMain:
                 ShopifyMonitor.Monitor(website['link'],
                                        website['name'],
                                        website['collections'],
-                                       keywords,
+                                       keywords, unwanted,
                                        self.comparer)
             )
 

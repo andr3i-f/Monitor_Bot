@@ -6,7 +6,7 @@ import time
 
 class Monitor:
     """Class to initiate and manage the behavior of the monitor"""
-    def __init__(self, url, name, collections, keywords, comparer):
+    def __init__(self, url, name, collections, keywords, unwanted, comparer):
         self.name = name
         self.collections = collections
 
@@ -15,6 +15,7 @@ class Monitor:
         self.url = url
 
         self.keywords = keywords
+        self.unwanted = unwanted
 
         self.wanted_items = []
         self.previous_items = []
@@ -50,7 +51,8 @@ class Monitor:
 
                 for product in all_products:
                     w_item = {}
-                    if any(substring in product['title'].lower() for substring in self.keywords):
+                    if any(substring in product['title'].lower() for substring in self.keywords) \
+                            and not any(substring in product['title'].lower() for substring in self.unwanted):
                         try:
                             w_item['NAME'] = product['title']
                             w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
