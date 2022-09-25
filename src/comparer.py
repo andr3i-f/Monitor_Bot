@@ -21,12 +21,14 @@ class Compare:
                     if item != previous_items[idx]:
 
                         if item['AVAIL_SIZES'] != previous_items[idx]['AVAIL_SIZES'] and item['AVAIL_SIZES']:
-                            avail_sizes = '\n'.join([size for size in item['AVAIL_SIZES']
-                                                     if size not in previous_items[idx]['AVAIL_SIZES']])
+                            avail_sizes = [size for size in item['AVAIL_SIZES']
+                                           if size not in previous_items[idx]['AVAIL_SIZES']]
 
                             if avail_sizes:  # Makes sure that there are some sizes before it sends a notification
                                 self.bot.send_alert(f"{item['NAME']}",
-                                                    item['LINK'], f"Available Sizes:\n{avail_sizes}",
+                                                    item['LINK'],
+                                                    "Restock",
+                                                    avail_sizes,
                                                     item['IMG'],
                                                     0x29e342)
             else:
@@ -39,10 +41,10 @@ class Compare:
 
                 for item in current_items:
                     if item['NAME'] not in name_list:
-                        sizes = '\n'.join(item['AVAIL_SIZES'])
                         self.bot.send_alert(f"{item['NAME']}",
                                             item['LINK'],
-                                            f"Available Sizes:\n{sizes}",
+                                            "New Item",
+                                            item['AVAIL_SIZES'],
                                             item['IMG'],
                                             0xf50000)
 
