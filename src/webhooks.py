@@ -36,7 +36,11 @@ class DiscordNotify:
         elif len(sizes) <= 4:
             embed_var.add_field(name="Sizes", value="\n".join([size for size in sizes]))
 
-        self.webhook_alert.send(embed=embed_var)
+        try:
+            self.webhook_alert.send(embed=embed_var)
+        except discord.errors.HTTPException:
+            self.update_log(f"HTTPException raised again for: \n{title}\n{link}\n{state}")
+            pass
 
     def broadcast(self, title, desc, color=0x00ffff):
         embed_var = discord.Embed(title=title, description=desc, color=color)

@@ -58,8 +58,28 @@ class Monitor:
                             w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
                             w_item['IMG'] = product['images'][0]['src']
                             w_item['LINK'] = f"{self.url}products/{product['handle']}"
-                        except IndexError:
-                            print(f'An item in {self.name} has an issue with "IndexError"')
+                        except IndexError:  # Incase there is an issue with grabbing item details
+                            if not product['title']:
+                                w_item['NAME'] = "Product Name - [Website Issue]"  # General name incase name can't be grabbed
+                            else:
+                                w_item['NAME'] = product['title']
+
+                            if not product['IMG']:
+                                w_item['IMG'] = "https://via.placeholder.com/705x450.png"  # Placeholder image incase image can't be grabbed
+                            else:
+                                w_item['IMG'] = product['images'][0]['src']
+
+                            if not product['handle']:
+                                w_item['LINK'] = f"{self.url}{collection}/"  # General link incase item link can't be grabbed
+                            else:
+                                w_item['LINK'] = f"{self.url}products/{product['handle']}"
+
+                            if not [size['title'] for size in product['variants'] if size['available']]:
+                                w_item['AVAIL_SIZES'] = "0"  # General answer incase sizes can't be grabbed
+                            else:
+                                w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
+
+                            print(f'An item in {self.name} has an issue with "IndexError"')  # Debug
 
                         self.wanted_items.append(w_item)
                 page += 1
@@ -70,7 +90,7 @@ class Monitor:
                 self.all_previous_items.append(self.previous_items)
 
             # Call for comparison here
-            print(len(self.wanted_items), len(self.all_previous_items[idx]))
+            print(len(self.wanted_items), len(self.all_previous_items[idx]))  # Debug
             self.reset_flag = self.comparer.compare_items(self.wanted_items, self.all_previous_items[idx])
 
             if self.reset_flag:
