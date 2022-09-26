@@ -31,7 +31,7 @@ class DiscordNotify:
             elif len(sizes) % 2 != 0:  # If it's odd, make sure the left side has the one extra size
                 embed_var.add_field(name="Sizes", value="\n".join([size for size in sizes[0:int(len(sizes) / 2) + 1]]),
                                     inline=True)
-                embed_var.add_field(name="\u200b", value="\n".join([size for size in sizes[int(len(sizes) + 1 / 2):]]),
+                embed_var.add_field(name="\u200b", value="\n".join([size for size in sizes[int(len(sizes) / 2) + 1:]]),
                                     inline=True)
         elif len(sizes) <= 4:
             embed_var.add_field(name="Sizes", value="\n".join([size for size in sizes]))
@@ -39,7 +39,7 @@ class DiscordNotify:
         try:
             self.webhook_alert.send(embed=embed_var)
         except discord.errors.HTTPException:
-            self.update_log(f"HTTPException raised again for: \n{title}\n{link}\n{state}")
+            self.update_log(f"HTTPException raised again for: \n{title}\n{link}\n{state}\n{sizes}")
             pass
 
     def broadcast(self, title, desc, color=0x00ffff):
