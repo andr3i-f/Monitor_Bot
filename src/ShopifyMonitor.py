@@ -106,7 +106,7 @@ class Monitor:
 
                         self.wanted_items.append(w_item)
                 page += 1
-                time.sleep(.2)  # Delay per each page as half a second is the minimum delay for requests for shopify
+                time.sleep(3)  # Delay per each page as half a second is the minimum delay for requests for shopify
 
             if self.set_up_flag:  # Copies items to previous items when initiating program to be able to compare later
                 self.previous_items = self.wanted_items[:]
