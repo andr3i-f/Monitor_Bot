@@ -32,7 +32,7 @@ class MonitorMain:
                                        website['name'],
                                        website['collections'],
                                        keywords, unwanted,
-                                       self.comparer)
+                                       self.comparer, self.notify_bot)
             )
 
         # Initialize gui

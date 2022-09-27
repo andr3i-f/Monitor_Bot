@@ -25,18 +25,10 @@ class Action(threading.Thread):
 
             print('Checking')
 
-            if True in [val.stop_monitor for val in self.monitors]:
-                break
-
             for monitor in self.monitors:
-                try:
-                    monitor.search_wanted_items()
 
-                except json.JSONDecodeError:  # Incase server stops allowing requests
-                    print('blocked')
-                    self.bot.update_log("```Requests have been blocked, bot is stopping.```")
-                    self.stop_event.set()
-
+                monitor.search_wanted_items()
+                
                 if self.stop_event.is_set():
                     break
 
