@@ -1,5 +1,6 @@
 from comparer import Compare
 import ShopifyMonitor
+import SupremeMonitor
 import gui
 import webhooks
 import json
@@ -34,6 +35,9 @@ class MonitorMain:
                                        keywords, unwanted,
                                        self.comparer, self.notify_bot)
             )
+
+        self.active_monitors.append(SupremeMonitor.SupremeMonitor("Supreme", 
+                                    self.notify_bot, 3))
 
         # Initialize gui
         self.gui = gui.Gui(self.comparer, self.active_monitors,

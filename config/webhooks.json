@@ -1,4 +1,5 @@
 {
-  "alert_webhook": "https://discord.com/api/webhooks/1021249030568812595/krzECpWs-4TSEy-tBzkAiOrWXSlLu8hgZmgxUizq2psKsmfO-u6saILEedwjt-gHab_b",
+  "shopify_webhook": "https://discord.com/api/webhooks/1021249030568812595/krzECpWs-4TSEy-tBzkAiOrWXSlLu8hgZmgxUizq2psKsmfO-u6saILEedwjt-gHab_b",
+  "supreme_webhook": "https://discord.com/api/webhooks/1041608872592416838/cFFc8g40n1lix63rO22yRnZVZjO7n3g_g5pmbNNF4p4BHUS8wk0oN9YVtxO2YvSKsR-h",
   "logs_webhook":"https://discord.com/api/webhooks/1021259923516043314/d67D6x8V-kbGtX4xyVkf0-TlCNDJZbZkZYw3jBkdRJvWUV3BagM6mLabs839H6P-94sR"
 }

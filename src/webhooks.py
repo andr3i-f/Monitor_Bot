@@ -8,10 +8,12 @@ class DiscordNotify:
         with open("config/webhooks.json") as f:
             webhooks = json.load(f)
 
-        self.WEB_HOOK_ALERT = webhooks['alert_webhook']
+        self.SHOPIFY_HOOK_ALERT = webhooks['shopify_webhook']
+        self.SUPREME_HOOK_ALERT = webhooks['supreme_webhook']
         self.WEB_HOOK_LOGS = webhooks['logs_webhook']
 
-        self.webhook_alert = discord.SyncWebhook.from_url(self.WEB_HOOK_ALERT)
+        self.shopify_alert = discord.SyncWebhook.from_url(self.SHOPIFY_HOOK_ALERT)
+        self.supreme_alert = discord.SyncWebhook.from_url(self.SUPREME_HOOK_ALERT)
         self.webhook_logs = discord.SyncWebhook.from_url(self.WEB_HOOK_LOGS)
 
     def send_alert(self, title, link, state, sizes, img, color=0xf705cb):
@@ -37,15 +39,22 @@ class DiscordNotify:
             embed_var.add_field(name="Sizes", value="\n".join([size for size in sizes]))
 
         try:
-            self.webhook_alert.send(embed=embed_var)
+            self.shopify_alert.send(embed=embed_var)
         except discord.errors.HTTPException:
             self.update_log(f"HTTPException raised again for: \n{title}\n{link}\n{state}\n{sizes}")
             pass
 
+    def send_alert_supreme(self, link, img, color=0xff0000):
+        embed_var = discord.Embed(title="Supreme New Item", color=color, url=link)
+        embed_var.set_image(url=img)
+        embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
+        
+        self.supreme_alert.send(embed=embed_var)
+
     def broadcast(self, title, desc, color=0x00ffff):
         embed_var = discord.Embed(title=title, description=desc, color=color)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
-        self.webhook_alert.send(embed=embed_var)
+        self.shopify_alert.send(embed=embed_var)
 
     def update_log(self, msg="Test"):
         self.webhook_logs.send(msg)
