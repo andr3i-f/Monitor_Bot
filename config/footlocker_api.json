@@ -1,0 +1,6 @@
+[
+    "https://www.footlocker.com/api/products/search?query=jordan%20retro%3Arelevance%3Agender%3ABoys%27%3Aage%3AGrade%20School%3Aproducttype%3AShoes&currentPage=&pageSize=48&timestamp=0",
+    "https://www.footlocker.com/api/products/search?query=jordan%20retro%3Arelevance%3Agender%3AMen%27s%3Aproducttype%3AShoes&currentPage=&pageSize=48&timestamp=0",
+    "https://www.footlocker.com/api/products/search?query=jordan%20retro%3Arelevance%3Aproducttype%3AShoes%3Agender%3AWomen%27s&currentPage=&pageSize=48&timestamp=0",
+    "https://www.footlocker.com/api/products/search?query=Nike%20Dunk%20Shoes&currentPage=&pageSize=48&timestamp=0"
+]
