@@ -10,10 +10,12 @@ class DiscordNotify:
 
         self.SHOPIFY_HOOK_ALERT = webhooks['shopify_webhook']
         self.SUPREME_HOOK_ALERT = webhooks['supreme_webhook']
+        self.FOOTLOCKER_HOOK_ALERT = webhooks['footlocker_webhook']
         self.WEB_HOOK_LOGS = webhooks['logs_webhook']
 
         self.shopify_alert = discord.SyncWebhook.from_url(self.SHOPIFY_HOOK_ALERT)
         self.supreme_alert = discord.SyncWebhook.from_url(self.SUPREME_HOOK_ALERT)
+        self.footlocker_alert = discord.SyncWebhook.from_url(self.FOOTLOCKER_HOOK_ALERT)
         self.webhook_logs = discord.SyncWebhook.from_url(self.WEB_HOOK_LOGS)
 
     def send_alert(self, title, link, state, sizes, img, color=0xf705cb):
@@ -49,7 +51,14 @@ class DiscordNotify:
         embed_var.set_image(url=img)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
         
-        self.supreme_alert.send(embed=embed_var)
+        self.supreme_alert.send(embed=embed_var) 
+    
+    def send_alert_footlocker(self, link, img, sku, price, name="test", color=0xababab):
+        embed_var = discord.Embed(title=name, color=color, url=link)
+        embed_var.set_image(url=img)
+        embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
+
+        self.footlocker_alert.send(embed=embed_var)
 
     def broadcast(self, title, desc, color=0x00ffff):
         embed_var = discord.Embed(title=title, description=desc, color=color)

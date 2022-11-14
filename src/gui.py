@@ -22,7 +22,7 @@ class Gui:
 
         sg.theme('DarkBlue2')
 
-        self.window = sg.Window("Monitors by Andrei", self.layout, size=(300, 200), finalize=True)
+        self.window = sg.Window("Monitors by Andrei", self.layout, size=(400, 250), finalize=True)
         self.window['broadcastMSG'].bind("<Return>", "_Enter")
 
     def run(self):
