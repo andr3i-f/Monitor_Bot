@@ -46,6 +46,9 @@ class FootLockerMonitor:
             
             req_url = requests.get(api, headers=headers)
 
+            if (req_url.status_code == 529):
+                return 0
+
             all_products = json.loads(req_url.text)['products']
 
             for product in all_products:
