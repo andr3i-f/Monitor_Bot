@@ -31,9 +31,9 @@ def main():
             author = str(message.author.id)
             name = str(message.author)
 
-            print(key)
-            print(author)
-            print(name)
+            #print(key)
+            #print(author)
+            #print(name)
 
             t = database.add_webhook(author, name, key)
             database.commit()
