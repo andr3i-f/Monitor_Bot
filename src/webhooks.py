@@ -38,7 +38,7 @@ class DiscordNotify:
                 embed_var.add_field(name="\u200b", value="\n".join([size for size in sizes[int(len(sizes) / 2) + 1:]]),
                                     inline=True)
         elif len(sizes) <= 4:
-            embed_var.add_field(name="Sizes", value="\n".join([size for size in sizes]))
+            embed_var.add_field(name="Available Sizes", value="\n".join([size for size in sizes]))
 
         try:
             self.shopify_alert.send(embed=embed_var)
