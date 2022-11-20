@@ -175,7 +175,7 @@ def main():
     #print(db.get_ID('12356'))
     #db.describe_table('shopify')
     #db.show_table_contents('shopify')
-    db.get_membership_role('121820049940938754')
+    #db.get_membership_role('121820049940938754')
 
 if __name__ == "__main__":
     main()
