@@ -6,19 +6,16 @@ class DiscordNotify:
     """Manages the messages that are being sent to the discord"""
     def __init__(self):
         with open("config/webhooks.json") as f:
-            webhooks = json.load(f)
+            x = json.load(f)
 
-        self.SHOPIFY_HOOK_ALERT = webhooks['shopify_webhook']
-        self.SUPREME_HOOK_ALERT = webhooks['supreme_webhook']
-        self.FOOTLOCKER_HOOK_ALERT = webhooks['footlocker_webhook']
-        self.WEB_HOOK_LOGS = webhooks['logs_webhook']
+        self.shopify_webhooks = import_webhooks('shopify')
+        self.footlocker_webhooks = import_webhooks('footlocker')
+        self.supreme_webhooks = import_webhooks('supreme')
+        self.nike_webhooks = import_webhooks('nike')
 
-        self.shopify_alert = discord.SyncWebhook.from_url(self.SHOPIFY_HOOK_ALERT)
-        self.supreme_alert = discord.SyncWebhook.from_url(self.SUPREME_HOOK_ALERT)
-        self.footlocker_alert = discord.SyncWebhook.from_url(self.FOOTLOCKER_HOOK_ALERT)
-        self.webhook_logs = discord.SyncWebhook.from_url(self.WEB_HOOK_LOGS)
+        self.webhook_logs = discord.SyncWebhook.from_url("https://discord.com/api/webhooks/1021259923516043314/d67D6x8V-kbGtX4xyVkf0-TlCNDJZbZkZYw3jBkdRJvWUV3BagM6mLabs839H6P-94sR")
 
-    def send_alert(self, title, link, state, sizes, img, color=0xf705cb):
+    def send_alert_shopify(self, title, link, state, sizes, img, color=0xf705cb):
         embed_var = discord.Embed(title=title, color=color, url=link)
         embed_var.set_image(url=img)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
@@ -41,7 +38,7 @@ class DiscordNotify:
             embed_var.add_field(name="Available Sizes", value="\n".join([size for size in sizes]))
 
         try:
-            self.shopify_alert.send(embed=embed_var)
+            send_alerts(self.shopify_webhooks, embed_var)
         except discord.errors.HTTPException:
             self.update_log(f"HTTPException raised again for: \n{title}\n{link}\n{state}\n{sizes}")
             pass
@@ -51,14 +48,14 @@ class DiscordNotify:
         embed_var.set_image(url=img)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
         
-        self.supreme_alert.send(embed=embed_var) 
+        send_alerts(self.supreme_webhooks, embed_var)
     
     def send_alert_footlocker(self, link, img, sku, price, name="test", color=0xababab):
         embed_var = discord.Embed(title=name, color=color, url=link)
         embed_var.set_image(url=img)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
 
-        self.footlocker_alert.send(embed=embed_var)
+        send_alerts(self.footlocker_webhooks, embed_var)
 
     def broadcast(self, title, desc, color=0x00ffff):
         embed_var = discord.Embed(title=title, description=desc, color=color)
@@ -67,3 +64,21 @@ class DiscordNotify:
 
     def update_log(self, msg="Test"):
         self.webhook_logs.send(msg)
+
+
+def import_webhooks(monitor_name):
+    current_webhooks = []
+
+    with open("config/webhooks.json") as f:
+        all = json.load(f)
+    
+    for dict in all[monitor_name]:
+        for x in dict.values():
+            current_webhooks.append(x)
+    
+    return current_webhooks
+
+def send_alerts(webhook_list, embed_var):
+    for webhook in webhook_list:
+        alert = discord.SyncWebhook.from_url(webhook)
+        alert.send(embed=embed_var)

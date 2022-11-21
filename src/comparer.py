@@ -25,7 +25,7 @@ class Compare:
                                            if size not in previous_items[idx]['AVAIL_SIZES']]
 
                             if avail_sizes:  # Makes sure that there are some sizes before it sends a notification
-                                self.bot.send_alert(f"{item['NAME']}",
+                                self.bot.send_alert_shopify(f"{item['NAME']}",
                                                     item['LINK'],
                                                     "Restock",
                                                     avail_sizes,
@@ -41,7 +41,7 @@ class Compare:
 
                 for item in current_items:
                     if item['NAME'] not in name_list:
-                        self.bot.send_alert(f"{item['NAME']}",
+                        self.bot.send_alert_shopify(f"{item['NAME']}",
                                             item['LINK'],
                                             "New Item",
                                             item['AVAIL_SIZES'],

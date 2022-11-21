@@ -100,9 +100,11 @@ class database:
         # This will remove a webhook if the user does not want the webhook anymore
         pass
 
-    def remove_user(self):
+    def remove_user(self, id):
         # This will remove a user if the user does not have membership anymore
-        pass
+        query = f"DELETE FROM Clients WHERE ID = {id}"
+        self.mycursor.execute(query)
+        self.commit()
 
     def get_membership_role(self, discordID):
         # This will return true or false depending if the user has a current membership in client database
@@ -203,9 +205,11 @@ def main():
     db = database()
     #db.add_user()
     db.show_users()
+    #db.remove_user(4)
+    #db.show_users
     #print(db.get_ID('12356'))
     #db.describe_table('shopify')
-    db.show_table_contents('footlocker')
+    #db.show_table_contents('footlocker')
     #db.get_membership_role('121820049940938754')
 
 if __name__ == "__main__":

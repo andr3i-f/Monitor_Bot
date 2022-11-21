@@ -49,6 +49,8 @@ class FootLockerMonitor:
             if (req_url.status_code == 529):
                 return 0
 
+            print(f"Footlocker Code = {req_url.status_code}")
+
             all_products = json.loads(req_url.text)['products']
 
             for product in all_products:
