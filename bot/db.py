@@ -82,6 +82,19 @@ class database:
         self.commit()
 
         return True 
+
+    def update_webhook(self, ID, key, table_name):
+        query =  f"UPDATE {table_name} SET webhook = '{key}' WHERE ID={ID}"
+        self.mycursor.execute(query)
+
+        self.commit()
+
+        query = f"UPDATE {table_name} SET Created = '{datetime.now()}' WHERE ID={ID}"
+        self.mycursor.execute(query)
+
+        self.commit()
+
+        return True
     
     def remove_webhook(self):
         # This will remove a webhook if the user does not want the webhook anymore
@@ -106,6 +119,24 @@ class database:
             return None
         elif member:
             return member
+    
+    def get_id_webhooks(self, discordID, table_name):
+        # This will return a dictionary of the requested ID and webhook if there
+        id = self.get_ID(discordID)
+
+        if not id:
+            return False
+        elif id:
+            query = f"SELECT webhook FROM {table_name} WHERE ID={id}"
+            self.mycursor.execute(query)
+
+            try:
+                webhook = self.mycursor.fetchone()[0]
+                return {str(id): webhook}
+            except TypeError:
+                return False
+
+
 
 
     def get_ID(self, discordID):
@@ -174,7 +205,7 @@ def main():
     db.show_users()
     #print(db.get_ID('12356'))
     #db.describe_table('shopify')
-    #db.show_table_contents('shopify')
+    db.show_table_contents('footlocker')
     #db.get_membership_role('121820049940938754')
 
 if __name__ == "__main__":

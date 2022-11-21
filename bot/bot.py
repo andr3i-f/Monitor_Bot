@@ -2,6 +2,10 @@ import discord
 from discord.ext import commands
 from datetime import datetime
 import db
+import json
+import sys
+import mysql.connector
+
 secret = "MTAyMTIyMDQ1Mzc1NjQ1Njk3MA.GX9KPz.cGUUchaSR1ldDQaGgUdQzFtACKQ3PtIz5Meefs"
 # inv https://discord.com/api/oauth2/authorize?client_id=1021220453756456970&permissions=1634504013888&scope=bot
 
@@ -21,6 +25,7 @@ def main():
     async def test(ctx, arg):
         print(ctx.author.id)
         print(ctx.author.roles)
+        add_webhook_to_json(database, ctx.author.id, 'shopify')
         await ctx.send(arg)
     
     @client.command()
@@ -41,7 +46,10 @@ def main():
             membership = "Y"
             created = datetime.now()
 
-            database.add_client(discord_id, discord_name, membership, created)
+            try:
+                database.add_client(discord_id, discord_name, membership, created)
+            except mysql.connector.IntegrityError:
+                await ctx.send("You are already added into Client database")
         
         elif not has_role:
             await ctx.send("Cannot add, try $check_role")
@@ -59,13 +67,18 @@ def main():
             await ctx.send("Could not find in database, try $add_client")
 
         elif ID and member == 'Y':
-            result = database.add_webhook_supreme(ID, key, time)        
+            try:
+                result = database.add_webhook_shopify(ID, key, time)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, key, 'shopify')
         
         if result:
+            add_webhook_to_json(database, discord_id, 'shopify')
             await ctx.send("Added webhook into database")
         elif not result:
             await ctx.send("Could not add webhook into database")
-    
+
+    @client.command()    
     async def add_supreme(ctx, arg):
         key = str(arg)
         discord_id = str(ctx.author.id)
@@ -78,13 +91,18 @@ def main():
             await ctx.send("Could not find in database, try $add_client")
         
         elif ID and member == 'Y':
-            result = database.add_webhook_supreme(ID, key, time)
+            try:
+                result = database.add_webhook_supreme(ID, key, time)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, key, 'supreme')
 
         if result:
+            add_webhook_to_json(database, discord_id, 'supreme')
             await ctx.send("Added webhook into database")
         elif not result:
             await ctx.send("Could not add webhook into database")
 
+    @client.command()
     async def add_footlocker(ctx, arg):
         key = str(arg)
         discord_id = str(ctx.author.id)
@@ -97,13 +115,19 @@ def main():
             await ctx.send("Could not find in database, try $add_client")
         
         elif ID and member == 'Y':
-            result = database.add_webhook_supreme(ID, key, time)
+            try: 
+                result = database.add_webhook_footlocker(ID, key, time)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, key, 'footlocker')
+            
 
         if result:
+            add_webhook_to_json(database, discord_id, 'footlocker')
             await ctx.send("Added webhook into database")
         elif not result:
             await ctx.send("Could not add webhook into database")
 
+    @client.command()
     async def add_nike(ctx, arg):
         key = str(arg)
         discord_id = str(ctx.author.id)
@@ -116,14 +140,51 @@ def main():
             await ctx.send("Could not find in database, try $add_client")
 
         elif ID and member == 'Y':
-            result = database.add_webhook_supreme(ID, key, time) 
+            try:
+                result = database.add_webhook_nike(ID, key, time) 
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, key, 'nike')
+                
+
 
         if result:
+            add_webhook_to_json(database, discord_id, 'nike')
             await ctx.send("Added webhook into database")
         elif not result:
-            await ctx.send("Could not add webhook into database")             
+            await ctx.send("Could not add webhook into database")
 
     client.run(secret)
+
+def add_webhook_to_json(database, discordID, table_name):
+    id_wh = database.get_id_webhooks(discordID, table_name)
+    present_flag = False
+    
+    with open("config/webhooks.json", "r") as f:
+        x = json.load(f)
+
+        for key, val in x.items():
+            if key == table_name:
+                if not val:  # List of webhooks is empty
+                    print('Empty list')
+                    val.append(id_wh)
+                elif val:  # List of webhooks is not empty
+                    for wh in val:
+                        print(id_wh.keys(), wh.keys())
+                        if id_wh.keys() == wh.keys():
+                            print('Changing webhook')
+                            val.remove(wh)
+                            val.append(id_wh)
+                            present_flag = True
+
+                    if not present_flag:
+                        print('Appending webhook')
+                        val.append(id_wh)  # If list is not empty, but webhook isn't present
+
+        
+    with open("config/webhooks.json", "w") as f:
+        json.dump(x, f, indent=4)
+        
+            
 
 if __name__ == "__main__":
     main()
