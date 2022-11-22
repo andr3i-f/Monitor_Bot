@@ -1,6 +1,9 @@
 import discord
 from discord import app_commands
-import datetime
+from datetime import datetime
+import db
+import mysql.connector
+import json
 
 secret = "MTAyMTIyMDQ1Mzc1NjQ1Njk3MA.GX9KPz.cGUUchaSR1ldDQaGgUdQzFtACKQ3PtIz5Meefs"
 guild_id = 1021219582247178260
@@ -10,6 +13,7 @@ def main():
     intents = discord.Intents.default()
     client = discord.Client(intents=intents)
     tree = app_commands.CommandTree(client)
+    database = db.database()
 
     @tree.command(name="add_client", description="Adds you to the client database if you have the required role", guild=discord.Object(id=guild_id))
     async def add_client(interaction):
@@ -19,6 +23,13 @@ def main():
             discord_name = interaction.user
             membership = "Y"
             created = datetime.now()
+
+            id = database.get_ID(discord_id)
+            if not id:
+                database.add_client(discord_id, discord_name, membership, created)
+                await interaction.response.send_message("You have been successfully added into the client database", ephemeral = True)
+            elif id:
+                await interaction.response.send_message("You are already in the client database", ephemeral = True)
         
         elif not has_role:
             await interaction.response.send_message("You do not have the 'Membership' role", ephemeral = True)
@@ -49,11 +60,34 @@ def main():
 
 class webhook_form_shopify(discord.ui.Modal, title="Shopify Webhook Input"):   # SHOPIFY WEBHOOK INPUT
     webhook = discord.ui.TextInput(label="WEBHOOK INPUT", style=discord.TextStyle.paragraph)
-    
 
     async def on_submit(self, interaction: discord.Interaction):
         # When person presses submit, this is where I try to add their webhook
-        await interaction.response.send_message(f"Submission entered", ephemeral=True)
+        database = db.database()
+
+        webhook_value = str(self.children[0])
+        discord_id = interaction.user.id
+        created = datetime.now()
+        result = None
+
+        ID = database.get_ID(discord_id)
+        member = database.get_membership_role(discord_id)
+
+        if ID == False:
+            await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
+        
+        elif ID and member == 'Y':
+            try:
+                result = database.add_webhook_shopify(ID, webhook_value, created)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, webhook_value, 'shopify')
+        
+        if result:
+            add_webhook_to_json(database, discord_id, 'shopify')
+            await interaction.response.send_message("Added webhook into database", ephemeral=True)
+        elif not result:
+            await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
+
 
 class webhook_form_supreme(discord.ui.Modal, title="Supreme Webhook Input"):  # SUPREME WEBHOOK INPUT
     webhook = discord.ui.TextInput(label="WEBHOOK INPUT", style=discord.TextStyle.paragraph)
@@ -61,7 +95,30 @@ class webhook_form_supreme(discord.ui.Modal, title="Supreme Webhook Input"):  # 
 
     async def on_submit(self, interaction: discord.Interaction):
         # When person presses submit, this is where I try to add their webhook
-        await interaction.response.send_message(f"Submission entered", ephemeral=True)
+        database = db.database()
+
+        webhook_value = str(self.children[0])
+        discord_id = interaction.user.id
+        created = datetime.now()
+        result = None
+
+        ID = database.get_ID(discord_id)
+        member = database.get_membership_role(discord_id)
+
+        if ID == False:
+            await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
+        
+        elif ID and member == 'Y':
+            try:
+                result = database.add_webhook_supreme(ID, webhook_value, created)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, webhook_value, 'supreme')
+        
+        if result:
+            add_webhook_to_json(database, discord_id, 'supreme')
+            await interaction.response.send_message("Added webhook into database", ephemeral=True)
+        elif not result:
+            await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
 
 class webhook_form_footlocker(discord.ui.Modal, title="Footlocker Webhook Input"):  # FOOTLOCKER WEBHOOK INPUT
     webhook = discord.ui.TextInput(label="WEBHOOK INPUT", style=discord.TextStyle.paragraph)
@@ -69,7 +126,31 @@ class webhook_form_footlocker(discord.ui.Modal, title="Footlocker Webhook Input"
 
     async def on_submit(self, interaction: discord.Interaction):
         # When person presses submit, this is where I try to add their webhook
-        await interaction.response.send_message(f"Submission entered", ephemeral=True)
+        database = db.database()
+
+        webhook_value = str(self.children[0])
+        discord_id = interaction.user.id
+        created = datetime.now()
+        result = None
+
+        ID = database.get_ID(discord_id)
+        member = database.get_membership_role(discord_id)
+
+        if ID == False:
+            await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
+        
+        elif ID and member == 'Y':
+            try:
+                result = database.add_webhook_footlocker(ID, webhook_value, created)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, webhook_value, 'footlocker')
+        
+        if result:
+            add_webhook_to_json(database, discord_id, 'footlocker')
+            await interaction.response.send_message("Added webhook into database", ephemeral=True)
+        elif not result:
+            await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
+
 
 
 class webhook_form_nike(discord.ui.Modal, title="Nike Webhook Input"):  # NIKE WEBHOOK INPUT
@@ -78,7 +159,61 @@ class webhook_form_nike(discord.ui.Modal, title="Nike Webhook Input"):  # NIKE W
 
     async def on_submit(self, interaction: discord.Interaction):
         # When person presses submit, this is where I try to add their webhook
-        await interaction.response.send_message(f"Submission entered", ephemeral=True)
+        database = db.database()
+
+        webhook_value = str(self.children[0])
+        discord_id = interaction.user.id
+        created = datetime.now()
+        result = None
+
+        ID = database.get_ID(discord_id)
+        member = database.get_membership_role(discord_id)
+
+        if ID == False:
+            await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
+        
+        elif ID and member == 'Y':
+            try:
+                result = database.add_webhook_nike(ID, webhook_value, created)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, webhook_value, 'nike')
+        
+        if result:
+            add_webhook_to_json(database, discord_id, 'nike')
+            await interaction.response.send_message("Added webhook into database", ephemeral=True)
+        elif not result:
+            await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
+
+
+
+def add_webhook_to_json(database, discordID, table_name):
+    id_wh = database.get_id_webhooks(discordID, table_name)
+    present_flag = False
+    print(id_wh)
+    with open("config/webhooks.json", "r") as f:
+        x = json.load(f)
+
+        for key, val in x.items():
+            if key == table_name:
+                if not val:  # List of webhooks is empty
+                    print('Empty list')
+                    val.append(id_wh)
+                elif val:  # List of webhooks is not empty
+                    for wh in val:
+                        print(id_wh.keys(), wh.keys())
+                        if id_wh.keys() == wh.keys():
+                            print('Changing webhook')
+                            val.remove(wh)
+                            val.append(id_wh)
+                            present_flag = True
+
+                    if not present_flag:
+                        print('Appending webhook')
+                        val.append(id_wh)  # If list is not empty, but webhook isn't present
+
+    with open("config/webhooks.json", "w") as f:
+        json.dump(x, f, indent=4)
+        
 
 if __name__ == "__main__":
     main()

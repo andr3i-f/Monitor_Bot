@@ -43,8 +43,6 @@ class database:
         self.mycursor.execute(query, val)
 
         self.commit()
-        
-        pass
     
     def add_webhook_shopify(self, ID, webhook, created):
         # This will check, and if there is no user for the webhook then it will add it, if there is a user with this webhook it will change it
@@ -209,7 +207,7 @@ def main():
     #db.show_users
     #print(db.get_ID('12356'))
     #db.describe_table('shopify')
-    #db.show_table_contents('footlocker')
+    db.show_table_contents('shopify')
     #db.get_membership_role('121820049940938754')
 
 if __name__ == "__main__":
