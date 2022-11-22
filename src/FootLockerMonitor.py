@@ -46,6 +46,8 @@ class FootLockerMonitor:
             
             req_url = requests.get(api, headers=headers)
 
+            print(req_url.status_code)
+
             if (req_url.status_code == 529):
                 return 0
 
