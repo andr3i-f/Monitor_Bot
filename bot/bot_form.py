@@ -1,32 +1,41 @@
 import discord
 from discord import app_commands
+import datetime
 
 secret = "MTAyMTIyMDQ1Mzc1NjQ1Njk3MA.GX9KPz.cGUUchaSR1ldDQaGgUdQzFtACKQ3PtIz5Meefs"
 guild_id = 1021219582247178260
+membership_role = "1043673145074253875"
 
 def main():
     intents = discord.Intents.default()
     client = discord.Client(intents=intents)
     tree = app_commands.CommandTree(client)
 
-    @tree.command(name="ping", description="Will pong", guild=discord.Object(id=guild_id))
-    async def ping(interaction):
-        await interaction.response.send_message("pong", ephemeral=True)
-
+    @tree.command(name="add_client", description="Adds you to the client database if you have the required role", guild=discord.Object(id=guild_id))
+    async def add_client(interaction):
+        has_role = interaction.user.get_role(int(membership_role))
+        if has_role:
+            discord_id = interaction.user.id
+            discord_name = interaction.user
+            membership = "Y"
+            created = datetime.now()
+        
+        elif not has_role:
+            await interaction.response.send_message("You do not have the 'Membership' role", ephemeral = True)
     
     @tree.command(name="shopify_webhook", description="Add your shopify webhook", guild=discord.Object(id=guild_id))
     async def shopify_webhook(interaction):
         await interaction.response.send_modal(webhook_form_shopify())
 
-    @tree.command(name="supreme_webhook", description="Add your shopify webhook", guild=discord.Object(id=guild_id))
+    @tree.command(name="supreme_webhook", description="Add your supreme webhook", guild=discord.Object(id=guild_id))
     async def shopify_webhook(interaction):
         await interaction.response.send_modal(webhook_form_supreme())
 
-    @tree.command(name="footlocker_webhook", description="Add your shopify webhook", guild=discord.Object(id=guild_id))
+    @tree.command(name="footlocker_webhook", description="Add your footlocker webhook", guild=discord.Object(id=guild_id))
     async def shopify_webhook(interaction):
         await interaction.response.send_modal(webhook_form_footlocker())
 
-    @tree.command(name="nike_webhook", description="Add your shopify webhook", guild=discord.Object(id=guild_id))
+    @tree.command(name="nike_webhook", description="Add your nike webhook", guild=discord.Object(id=guild_id))
     async def shopify_webhook(interaction):
         await interaction.response.send_modal(webhook_form_nike())
 
