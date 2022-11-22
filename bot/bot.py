@@ -1,5 +1,9 @@
 import discord
+import bot_form
 from discord.ext import commands
+from discord import app_commands
+import interactions
+
 from datetime import datetime
 import db
 import json
@@ -19,13 +23,12 @@ def main():
     client = commands.Bot(command_prefix='$', intents=intents)
 
     database = db.database()
-
     
     @client.command()
     async def test(ctx, arg):
         print(ctx.author.id)
         print(ctx.author.roles)
-        add_webhook_to_json(database, ctx.author.id, 'shopify')
+        #add_webhook_to_json(database, ctx.author.id, 'shopify')
         await ctx.send(arg)
     
     @client.command()
