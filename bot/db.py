@@ -98,11 +98,20 @@ class database:
         # This will remove a webhook if the user does not want the webhook anymore
         pass
 
-    def remove_user(self, id):
+    def remove_user_clients(self, discord_id):
         # This will remove a user if the user does not have membership anymore
-        query = f"DELETE FROM Clients WHERE ID = {id}"
+        query = f"DELETE FROM Clients WHERE DiscordID = {discord_id}"
         self.mycursor.execute(query)
         self.commit()
+    
+    def remove_user_webhooks(self, id):
+        # This will remove the user from all webhook tables
+        tables = ['shopify', 'footlocker', 'nike', 'supreme']
+        for table in tables:
+            #print('removing')
+            query = f"DELETE FROM {table} WHERE ID = {id}"
+            self.mycursor.execute(query)
+            self.commit()
 
     def get_membership_role(self, discordID):
         # This will return true or false depending if the user has a current membership in client database
@@ -120,6 +129,21 @@ class database:
         elif member:
             return member
     
+    def get_all_ids_webhooks(self):
+        # This will return every single ID and Webhook in order of Shopify, Footlocker, Supreme, Nike
+        all_ids_webhooks = []
+        tables = ['shopify', 'footlocker', 'supreme', 'nike']
+
+        for table in tables:
+            result = []
+            query = f"SELECT ID, webhook FROM {table}"
+            self.mycursor.execute(query)
+            result = self.mycursor.fetchall()
+
+            all_ids_webhooks.append(result)
+        
+        return(all_ids_webhooks)
+
     def get_id_webhooks(self, discordID, table_name):
         # This will return a dictionary of the requested ID and webhook if there
         id = self.get_ID(discordID)
@@ -136,7 +160,13 @@ class database:
             except TypeError:
                 return False
 
+    def get_all_discord_ids(self):
+        # This will get all the discord IDs from the client database
+        query = "SELECT DiscordID FROM Clients WHERE Membership='Y'"
+        self.mycursor.execute(query)
 
+        result = self.mycursor.fetchall()
+        return result
 
 
     def get_ID(self, discordID):
@@ -203,12 +233,10 @@ def main():
     db = database()
     #db.add_user()
     db.show_users()
-    #db.remove_user(4)
-    #db.show_users
-    #print(db.get_ID('12356'))
-    #db.describe_table('shopify')
-    db.show_table_contents('shopify')
-    #db.get_membership_role('121820049940938754')
+    #db.get_all_discord_ids()
+    #db.remove_user_webhooks(3)
+    db.show_table_contents('footlocker')
+
 
 if __name__ == "__main__":
     main()
