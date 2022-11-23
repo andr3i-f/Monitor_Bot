@@ -67,7 +67,9 @@ class Monitor:
                         self.blocked = False
                         self.bot.update_log(f"```Switching away from free proxies```")
 
+                print(self.name, req_url.status_code)
                 all_products = json.loads(req_url.text)['products']
+
 
                 if not all_products:  # Checks if we reached a page that doesn't have products
                     break
@@ -105,6 +107,7 @@ class Monitor:
                             print(f'An item in {self.name} has an issue with "IndexError"')  # Debug
 
                         self.wanted_items.append(w_item)
+                        #print(self.name, len(self.wanted_items))
                 page += 1
                 time.sleep(3)  # Delay per each page as half a second is the minimum delay for requests for shopify
 
