@@ -63,7 +63,7 @@ class DiscordNotify:
         embed_var.set_image(url=image)
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
         
-        embed_var.add_field(name="Product Color", value=prod_color, inline=True)
+        embed_var.add_field(name="Product Color", value=prod_color, inline=False)
         embed_var.add_field(name="Price", value=price, inline=True)
         embed_var.add_field(name="Launch Date", value=launch_date, inline=True)
         embed_var.add_field(name="SKU", value=sku, inline=True)

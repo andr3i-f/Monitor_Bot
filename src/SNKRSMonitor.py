@@ -3,9 +3,15 @@ import json
 import time
 import random
 
+import webhooks
+
 class SNKRSMonitor:
-    def __init__(self):
-        self.name = "SNKRS"
+    def __init__(self, name, webhook_bot, keywords, delay=3):
+        self.name = name
+        self.webhook_bot = webhook_bot
+        self.delay = delay
+
+        self.keywords = keywords
         self.anchor = 0
         self.link = f"https://api.nike.com/product_feed/threads/v3/?anchor={self.anchor}&count=50&filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28010794e5-35fe-4e32-aaff-cd2c74f89d61%29&filter=exclusiveAccess%28true%2Cfalse%29"
         
@@ -42,7 +48,7 @@ class SNKRSMonitor:
                     product['title'] = title
                     product['color'] = color
                     product['price'] = price
-                    product['launch_date'] = launch_date
+                    product['launch_date'] = launch_date[5:]
                     product['sku'] = sku
                     product['image'] = image
                     product['link'] = prod_link
@@ -58,7 +64,7 @@ class SNKRSMonitor:
                
 
             self.anchor += 50
-            time.sleep(3)
+            time.sleep(self.delay)
         
         if self.set_up_flag:
             self.set_up_flag = False
@@ -75,19 +81,43 @@ class SNKRSMonitor:
                 for item in self.current_products:
 
                     if item not in self.previous_products:
-                        # send an alert, new item alert
-                        pass
+                        self.webhook_bot.send_alert_SNKRS(
+                            item['title'],
+                            item['color'],
+                            item['price'],
+                            item['launch_date'],
+                            item['sku'],
+                            item['image'],
+                            item['link']
+                        )
+                        
         
         except IndexError:
             if len(self.current_products) > len(self.previous_products):
                 # Something was added
-                
+
                 for item in self.current_products:
                     if item not in self.previous_products:
                         # Send alert here
-                        pass
+                        self.webhook_bot.send_alert_SNKRS(
+                            item['title'],
+                            item['color'],
+                            item['price'],
+                            item['launch_date'],
+                            item['sku'],
+                            item['image'],
+                            item['link']
+                        )
 
             elif len(self.current_products) < len(self.previous_products):
                 # Something was removed
                 self.set_up_flag = True
-        
+
+
+def main():
+    notify = webhooks.DiscordNotify()
+    bot = SNKRSMonitor('hi', notify, 'hi', 3)
+    bot.search_wanted_items()
+
+if __name__ == "__main__":
+    main()

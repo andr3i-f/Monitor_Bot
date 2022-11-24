@@ -257,7 +257,7 @@ class webhook_form_snkrs(discord.ui.Modal, title="SNKRS Webhook Input"):  # SNKR
 def add_webhook_to_json(database, discordID, table_name):
     id_wh = database.get_id_webhooks(discordID, table_name)
     present_flag = False
-    print(id_wh)
+    #print(id_wh)
     with open("config/webhooks.json", "r") as f:
         x = json.load(f)
 
@@ -268,7 +268,7 @@ def add_webhook_to_json(database, discordID, table_name):
                     val.append(id_wh)
                 elif val:  # List of webhooks is not empty
                     for wh in val:
-                        print(id_wh.keys(), wh.keys())
+                        #print(id_wh.keys(), wh.keys())
                         if id_wh.keys() == wh.keys():
                             print('Changing webhook')
                             val.remove(wh)
@@ -285,7 +285,7 @@ def add_webhook_to_json(database, discordID, table_name):
 def update_webhook_to_json(database):
     #print("first step updating")
     ids_webhooks = database.get_all_ids_webhooks()
-    print(ids_webhooks)
+    #print(ids_webhooks)
     json_tables = ['shopify', 'footlocker', 'supreme', 'nike', 'snkrs']
 
     with open('config/webhooks.json', 'r') as f:
@@ -303,7 +303,7 @@ def update_webhook_to_json(database):
 
             x[json_tables[count]].append(id_wh)
     
-    print(x)
+    #print(x)
 
     with open('config/webhooks.json', 'w') as f:
         json.dump(x, f, indent=4)
