@@ -1,8 +1,8 @@
-from comparer import Compare
-import ShopifyMonitor
-import SupremeMonitor
-import FootLockerMonitor
-import SNKRSMonitor
+from monitors.comparer import Compare
+import monitors.ShopifyMonitor as ShopifyMonitor
+import monitors.SupremeMonitor as SupremeMonitor
+import monitors.FootLockerMonitor as FootLockerMonitor
+import monitors.SNKRSMonitor as SNKRSMonitor
 import gui
 import webhooks
 import json
