@@ -116,8 +116,7 @@ class FootLockerMonitor:
                         pass
 
             elif len(self.current_items) < len(self.all_previous_items[self.idx]):
-                # Something was removed
-                pass
+                self.set_up_flag = True
 
 
 if __name__ == "__main__":

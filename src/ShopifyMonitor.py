@@ -70,7 +70,6 @@ class Monitor:
                 print(self.name, req_url.status_code)
                 all_products = json.loads(req_url.text)['products']
 
-
                 if not all_products:  # Checks if we reached a page that doesn't have products
                     break
 
