@@ -7,7 +7,7 @@ from webhooks import DiscordNotify
 
 class FootLockerMonitor:
     """Class to initiate and manage the behavior of this monitor"""
-    def __init__(self, name, bot, keywords, delay):
+    def __init__(self, name, bot, keywords, delay=3):
         self.name = name
         self.bot = bot
         self.keywords = keywords
@@ -20,9 +20,10 @@ class FootLockerMonitor:
         self.blocked = False
         self.timeout_timer = None
 
-        self.delay = delay
 
         self.idx = 0
+
+        self.delay = 3
 
         with open('config/user_agents.json') as f:
             self.user_agents = json.load(f)
@@ -84,6 +85,7 @@ class FootLockerMonitor:
             self.idx += 1
 
             time.sleep(self.delay)
+
             
         self.set_up_flag = False
     

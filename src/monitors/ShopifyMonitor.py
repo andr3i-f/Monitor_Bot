@@ -8,11 +8,9 @@ from fp.fp import FreeProxy
 
 class Monitor:
     """Class to initiate and manage the behavior of the monitor"""
-    def __init__(self, url, name, collections, keywords, unwanted, comparer, bot):
+    def __init__(self, url, name, collections, keywords, unwanted, bot, delay=3):
         self.name = name
         self.collections = collections
-
-        self.comparer = comparer
 
         self.url = url
 
@@ -31,6 +29,8 @@ class Monitor:
 
         self.blocked = False
         self.timeout_timer = None
+
+        self.delay = delay
 
         with open('config/user_agents.json') as f:
             self.user_agents = json.load(f)
@@ -67,7 +67,7 @@ class Monitor:
                         self.blocked = False
                         self.bot.update_log(f"```Switching away from free proxies```")
 
-                print(self.name, req_url.status_code)
+                #print(self.name, req_url.status_code)
                 all_products = json.loads(req_url.text)['products']
 
 
@@ -104,20 +104,20 @@ class Monitor:
                             else:
                                 w_item['AVAIL_SIZES'] = [size['title'] for size in product['variants'] if size['available']]
 
-                            print(f'An item in {self.name} has an issue with "IndexError"')  # Debug
+                            #print(f'An item in {self.name} has an issue with "IndexError"')  # Debug
 
                         self.wanted_items.append(w_item)
                         #print(self.name, len(self.wanted_items))
                 page += 1
-                time.sleep(3)  # Delay per each page as half a second is the minimum delay for requests for shopify
+                time.sleep(self.delay)  # Delay per each page as half a second is the minimum delay for requests for shopify
 
             if self.set_up_flag:  # Copies items to previous items when initiating program to be able to compare later
                 self.previous_items = self.wanted_items[:]
                 self.all_previous_items.append(self.previous_items)
 
             # Call for comparison here
-            print(len(self.wanted_items), len(self.all_previous_items[idx]))  # Debug
-            self.reset_flag = self.comparer.compare_items(self.wanted_items, self.all_previous_items[idx])
+            #print(len(self.wanted_items), len(self.all_previous_items[idx]))  # Debug
+            self.reset_flag = self.compare_items(self.wanted_items, self.all_previous_items[idx])
 
             if self.reset_flag:
                 self.all_previous_items[idx] = self.wanted_items[:]
@@ -125,3 +125,53 @@ class Monitor:
 
         if self.set_up_flag:
             self.set_up_flag = False
+
+
+    def compare_items(self, current_items, previous_items):
+        """Will compare the previous and current items together"""
+
+        if previous_items == current_items:
+            return False
+
+        elif previous_items != current_items:
+            self.find_change(current_items, previous_items)
+            return True
+
+    def find_change(self, current_items, previous_items):
+        """This will find what has changed from current to previous state"""
+        try:
+            if len(current_items) == len(previous_items):
+                for idx, item in enumerate(current_items):
+                    if item != previous_items[idx]:
+
+                        if item['AVAIL_SIZES'] != previous_items[idx]['AVAIL_SIZES'] and item['AVAIL_SIZES']:
+                            avail_sizes = [size for size in item['AVAIL_SIZES']
+                                           if size not in previous_items[idx]['AVAIL_SIZES']]
+
+                            if avail_sizes:  # Makes sure that there are some sizes before it sends a notification
+                                self.bot.send_alert_shopify(f"{item['NAME']}",
+                                                    item['LINK'],
+                                                    "Restock",
+                                                    avail_sizes,
+                                                    item['IMG'],
+                                                    0x29e342)
+            else:
+                raise IndexError  # Throw index error bc. lens are different, it will raise an index error regardless
+
+        except IndexError:
+            if len(current_items) > len(previous_items):
+                # Something was added
+                name_list = [i['NAME'] for i in previous_items]
+
+                for item in current_items:
+                    if item['NAME'] not in name_list:
+                        self.bot.send_alert_shopify(f"{item['NAME']}",
+                                            item['LINK'],
+                                            "New Item",
+                                            item['AVAIL_SIZES'],
+                                            item['IMG'],
+                                            0xf50000)
+
+            elif len(current_items) < len(previous_items):
+                # Something was removed
+                pass

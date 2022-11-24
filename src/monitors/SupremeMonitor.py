@@ -55,7 +55,7 @@ class SupremeMonitor:
             self.set_up_flag = False
         time.sleep(self.delay)
 
-        print(len(self.current_items), len(self.previous_items))
+        #print(len(self.current_items), len(self.previous_items))
         
         if self.previous_items != self.current_items:
             self.compare_items()
