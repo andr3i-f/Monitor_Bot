@@ -78,7 +78,7 @@ class FootLockerMonitor:
 
             print(len(self.current_items), len(self.all_previous_items[self.idx]))
             if self.all_previous_items[self.idx] != self.current_items:
-                # Something changed, look for error
+                self.compare_items()
                 pass
 
             self.idx += 1
@@ -116,6 +116,7 @@ class FootLockerMonitor:
                         pass
 
             elif len(self.current_items) < len(self.all_previous_items[self.idx]):
+                # Something was removed
                 self.set_up_flag = True
 
 

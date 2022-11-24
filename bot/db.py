@@ -15,10 +15,11 @@ from datetime import datetime
     #query1 = "CREATE TABLE Clients (id int PRIMARY KEY AUTO_INCREMENT, user_id VARCHAR(50), name VARCHAR(50), webhook VARCHAR(150))"
     
 
-tables = ['shopify', 'footlocker', 'supreme', 'nike']
 
 class database:
     def __init__(self, host="localhost", user="root", passwd="root", database="A1Monitors"):
+        self.tables = ['shopify', 'footlocker', 'supreme', 'nike', 'snkrs']
+
         self.host = host
         self.user = user
         self.passwd = passwd
@@ -80,6 +81,15 @@ class database:
         self.commit()
 
         return True 
+    
+    def add_webhook_snkrs(self, ID, webhook, created):
+        query = "INSERT INTO snkrs (ID, webhook, Created) VALUES (%s, %s, %s)"
+        val = (ID, webhook, created)
+        self.mycursor.execute(query, val)
+
+        self.commit()
+
+        return True
 
     def update_webhook(self, ID, key, table_name):
         query =  f"UPDATE {table_name} SET webhook = '{key}' WHERE ID={ID}"
@@ -106,9 +116,8 @@ class database:
     
     def remove_user_webhooks(self, id):
         # This will remove the user from all webhook tables
-        tables = ['shopify', 'footlocker', 'nike', 'supreme']
-        for table in tables:
-            #print('removing')
+        for table in self.tables:
+            print('removing', table)
             query = f"DELETE FROM {table} WHERE ID = {id}"
             self.mycursor.execute(query)
             self.commit()
@@ -132,9 +141,8 @@ class database:
     def get_all_ids_webhooks(self):
         # This will return every single ID and Webhook in order of Shopify, Footlocker, Supreme, Nike
         all_ids_webhooks = []
-        tables = ['shopify', 'footlocker', 'supreme', 'nike']
 
-        for table in tables:
+        for table in self.tables:
             result = []
             query = f"SELECT ID, webhook FROM {table}"
             self.mycursor.execute(query)
@@ -226,7 +234,7 @@ class database:
     def create_tables(self):
         # Creates tables, only used once
         #self.mycursor.execute("CREATE TABLE Clients (DiscordID VARCHAR(100) NOT NULL, DiscordName VARCHAR(100) NOT NULL, Membership ENUM('Y', 'N') NOT NULL, Created datetime, ID int PRIMARY KEY NOT NULL AUTO_INCREMENT)")
-        #self.mycursor.execute("CREATE TABLE Supreme (ID int PRIMARY KEY, FOREIGN KEY(ID) REFERENCES Clients(ID), webhook VARCHAR(250), Created datetime)")
+        #self.mycursor.execute("CREATE TABLE SNKRS (ID int PRIMARY KEY, FOREIGN KEY(ID) REFERENCES Clients(ID), webhook VARCHAR(250), Created datetime)")
         pass
     
 def main():
@@ -235,7 +243,11 @@ def main():
     db.show_users()
     #db.get_all_discord_ids()
     #db.remove_user_webhooks(3)
-    db.show_table_contents('footlocker')
+    #db.show_table_contents('snkrs')
+    db.describe_table('footlocker')
+    #db.show_tables()
+    #db.create_tables()
+    #db.show_tables()
 
 
 if __name__ == "__main__":

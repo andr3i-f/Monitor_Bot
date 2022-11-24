@@ -12,6 +12,7 @@ class DiscordNotify:
         self.footlocker_webhooks = import_webhooks('footlocker')
         self.supreme_webhooks = import_webhooks('supreme')
         self.nike_webhooks = import_webhooks('nike')
+        self.snkrs_webhooks = import_webhooks('snkrs')
 
         self.webhook_logs = discord.SyncWebhook.from_url("https://discord.com/api/webhooks/1021259923516043314/d67D6x8V-kbGtX4xyVkf0-TlCNDJZbZkZYw3jBkdRJvWUV3BagM6mLabs839H6P-94sR")
 
@@ -56,6 +57,18 @@ class DiscordNotify:
         embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
 
         send_alerts(self.footlocker_webhooks, embed_var)
+    
+    def send_alert_SNKRS(self, title, prod_color, price, launch_date, sku, image, prod_link, color=0xff0008):
+        embed_var = discord.Embed(title=title, color=color, url=prod_link)
+        embed_var.set_image(url=image)
+        embed_var.set_author(name="andr3i monitors", url="https://github.com/andr3i-f/")
+        
+        embed_var.add_field(name="Product Color", value=prod_color, inline=True)
+        embed_var.add_field(name="Price", value=price, inline=True)
+        embed_var.add_field(name="Launch Date", value=launch_date, inline=True)
+        embed_var.add_field(name="SKU", value=sku, inline=True)
+
+        send_alerts(self.snkrs_webhooks, embed_var)
 
     def broadcast(self, title, desc, color=0x00ffff):
         embed_var = discord.Embed(title=title, description=desc, color=color)

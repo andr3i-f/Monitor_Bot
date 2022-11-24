@@ -81,6 +81,10 @@ def main():
     @tree.command(name="nike_webhook", description="Add your nike webhook", guild=discord.Object(id=guild_id))
     async def shopify_webhook(interaction):
         await interaction.response.send_modal(webhook_form_nike())
+    
+    @tree.command(name="snkrs_webhook", description="Add your SNKRS webhook", guild=discord.Object(id=guild_id))
+    async def snkrs_webhook(interaction):
+        await interaction.response.send_modal(webhook_form_snkrs())
 
     @client.event
     async def on_ready():
@@ -108,7 +112,8 @@ class webhook_form_shopify(discord.ui.Modal, title="Shopify Webhook Input"):   #
 
         if ID == False:
             await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
-        
+            return 0
+
         elif ID and member == 'Y':
             try:
                 result = database.add_webhook_shopify(ID, webhook_value, created)
@@ -139,7 +144,8 @@ class webhook_form_supreme(discord.ui.Modal, title="Supreme Webhook Input"):  # 
 
         if ID == False:
             await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
-        
+            return 0
+
         elif ID and member == 'Y':
             try:
                 result = database.add_webhook_supreme(ID, webhook_value, created)
@@ -170,7 +176,8 @@ class webhook_form_footlocker(discord.ui.Modal, title="Footlocker Webhook Input"
 
         if ID == False:
             await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
-        
+            return 0
+
         elif ID and member == 'Y':
             try:
                 result = database.add_webhook_footlocker(ID, webhook_value, created)
@@ -201,7 +208,8 @@ class webhook_form_nike(discord.ui.Modal, title="Nike Webhook Input"):  # NIKE W
 
         if ID == False:
             await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
-        
+            return 0
+
         elif ID and member == 'Y':
             try:
                 result = database.add_webhook_nike(ID, webhook_value, created)
@@ -213,6 +221,38 @@ class webhook_form_nike(discord.ui.Modal, title="Nike Webhook Input"):  # NIKE W
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
+
+class webhook_form_snkrs(discord.ui.Modal, title="SNKRS Webhook Input"):  # SNKRS WEBHOOK INPUT
+    webhook = discord.ui.TextInput(label="WEBHOOK INPUT", style=discord.TextStyle.paragraph)
+    
+
+    async def on_submit(self, interaction: discord.Interaction):
+        # When person presses submit, this is where I try to add their webhook
+        database = db.database()
+
+        webhook_value = str(self.children[0])
+        discord_id = interaction.user.id
+        created = datetime.now()
+        result = None
+
+        ID = database.get_ID(discord_id)
+        member = database.get_membership_role(discord_id)
+
+        if ID == False:
+            await interaction.response.send_message("Could not find user in database, try /add_client", ephemeral=True)
+            return 0
+        
+        elif ID and member == 'Y':
+            try:
+                result = database.add_webhook_snkrs(ID, webhook_value, created)
+            except mysql.connector.IntegrityError:
+                result = database.update_webhook(ID, webhook_value, 'snkrs')
+        
+        if result:
+            add_webhook_to_json(database, discord_id, 'snkrs')
+            await interaction.response.send_message("Added webhook into database", ephemeral=True)
+        elif not result:
+            await interaction.response.send_message("Could not add webhook into database", ephemeral=True)    
 
 def add_webhook_to_json(database, discordID, table_name):
     id_wh = database.get_id_webhooks(discordID, table_name)
@@ -243,10 +283,10 @@ def add_webhook_to_json(database, discordID, table_name):
         json.dump(x, f, indent=4)
         
 def update_webhook_to_json(database):
-    print("first step updating")
+    #print("first step updating")
     ids_webhooks = database.get_all_ids_webhooks()
     print(ids_webhooks)
-    json_tables = ['shopify', 'footlocker', 'supreme', 'nike']
+    json_tables = ['shopify', 'footlocker', 'supreme', 'nike', 'snkrs']
 
     with open('config/webhooks.json', 'r') as f:
         x = json.load(f)

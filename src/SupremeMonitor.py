@@ -89,6 +89,7 @@ class SupremeMonitor:
                             
                     
                 elif len(self.current_items) < len(self.previous_items):
+                    # Something was removed
                     self.set_up_flag = True
 
         elif self.set_up_flag == True:
