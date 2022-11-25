@@ -118,10 +118,10 @@ class webhook_form_shopify(discord.ui.Modal, title="Shopify Webhook Input"):   #
             try:
                 result = database.add_webhook_shopify(ID, webhook_value, created)
             except mysql.connector.IntegrityError:
-                result = database.update_webhook(ID, webhook_value, 'shopify')
+                result = database.update_webhook(ID, webhook_value, 'Shopify')
         
         if result:
-            add_webhook_to_json(database, discord_id, 'shopify')
+            add_webhook_to_json(database, discord_id, 'Shopify')
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
@@ -150,10 +150,10 @@ class webhook_form_supreme(discord.ui.Modal, title="Supreme Webhook Input"):  # 
             try:
                 result = database.add_webhook_supreme(ID, webhook_value, created)
             except mysql.connector.IntegrityError:
-                result = database.update_webhook(ID, webhook_value, 'supreme')
+                result = database.update_webhook(ID, webhook_value, 'Supreme')
         
         if result:
-            add_webhook_to_json(database, discord_id, 'supreme')
+            add_webhook_to_json(database, discord_id, 'Supreme')
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
@@ -182,10 +182,10 @@ class webhook_form_footlocker(discord.ui.Modal, title="Footlocker Webhook Input"
             try:
                 result = database.add_webhook_footlocker(ID, webhook_value, created)
             except mysql.connector.IntegrityError:
-                result = database.update_webhook(ID, webhook_value, 'footlocker')
+                result = database.update_webhook(ID, webhook_value, 'Footlocker')
         
         if result:
-            add_webhook_to_json(database, discord_id, 'footlocker')
+            add_webhook_to_json(database, discord_id, 'Footlocker')
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
@@ -214,10 +214,10 @@ class webhook_form_nike(discord.ui.Modal, title="Nike Webhook Input"):  # NIKE W
             try:
                 result = database.add_webhook_nike(ID, webhook_value, created)
             except mysql.connector.IntegrityError:
-                result = database.update_webhook(ID, webhook_value, 'nike')
+                result = database.update_webhook(ID, webhook_value, 'Nike')
         
         if result:
-            add_webhook_to_json(database, discord_id, 'nike')
+            add_webhook_to_json(database, discord_id, 'Nike')
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)
@@ -246,10 +246,10 @@ class webhook_form_snkrs(discord.ui.Modal, title="SNKRS Webhook Input"):  # SNKR
             try:
                 result = database.add_webhook_snkrs(ID, webhook_value, created)
             except mysql.connector.IntegrityError:
-                result = database.update_webhook(ID, webhook_value, 'snkrs')
+                result = database.update_webhook(ID, webhook_value, 'SNKRS')
         
         if result:
-            add_webhook_to_json(database, discord_id, 'snkrs')
+            add_webhook_to_json(database, discord_id, 'SNKRS')
             await interaction.response.send_message("Added webhook into database", ephemeral=True)
         elif not result:
             await interaction.response.send_message("Could not add webhook into database", ephemeral=True)    
@@ -286,7 +286,7 @@ def update_webhook_to_json(database):
     #print("first step updating")
     ids_webhooks = database.get_all_ids_webhooks()
     #print(ids_webhooks)
-    json_tables = ['shopify', 'footlocker', 'supreme', 'nike', 'snkrs']
+    json_tables = ['Shopify', 'Footlocker', 'Supreme', 'Nike', 'SNKRS']
 
     with open('config/webhooks.json', 'r') as f:
         x = json.load(f)

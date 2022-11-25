@@ -4,3 +4,7 @@ time
 datetime
 FreeProxy
 BeautifulSoup
+threading
+discord
+mysql
+datetime

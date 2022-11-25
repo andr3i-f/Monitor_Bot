@@ -17,19 +17,25 @@ from datetime import datetime
 
 
 class database:
-    def __init__(self, host="localhost", user="root", passwd="root", database="A1Monitors"):
-        self.tables = ['shopify', 'footlocker', 'supreme', 'nike', 'snkrs']
+    def __init__(self):
+        self.tables = ['Shopify', 'Footlocker', 'Supreme', 'Nike', 'SNKRS']
 
-        self.host = host
-        self.user = user
-        self.passwd = passwd
-        self.database = database
+        """ self.host = "containers-us-west-58.railway.app"
+        self.user = "root"
+        self.passwd = "zEUpUIRj1tMUO9Hzg89M"
+        self.database = "railway"""
+
+        self.host = "localhost"
+        self.user = "root"
+        self.passwd = "root"
+        self.database = "A1Monitors"
     
         self.db = mysql.connector.connect(
             host=self.host,
             user=self.user,
             passwd=self.passwd,
-            database=self.database
+            database=self.database,
+            
         )
 
         self.mycursor = self.db.cursor()
@@ -83,7 +89,7 @@ class database:
         return True 
     
     def add_webhook_snkrs(self, ID, webhook, created):
-        query = "INSERT INTO snkrs (ID, webhook, Created) VALUES (%s, %s, %s)"
+        query = "INSERT INTO SNKRS (ID, webhook, Created) VALUES (%s, %s, %s)"
         val = (ID, webhook, created)
         self.mycursor.execute(query, val)
 
@@ -240,11 +246,11 @@ class database:
 def main():
     db = database()
     #db.add_user()
-    db.show_users()
+    #db.show_users()
     #db.get_all_discord_ids()
     #db.remove_user_webhooks(3)
     #db.show_table_contents('snkrs')
-    db.describe_table('footlocker')
+    db.describe_table('SNKRS')
     #db.show_tables()
     #db.create_tables()
     #db.show_tables()

@@ -5,16 +5,15 @@ import json
 class DiscordNotify:
     """Manages the messages that are being sent to the discord"""
     def __init__(self):
-        with open("config/webhooks.json") as f:
-            x = json.load(f)
-
-        self.shopify_webhooks = import_webhooks('shopify')
-        self.footlocker_webhooks = import_webhooks('footlocker')
-        self.supreme_webhooks = import_webhooks('supreme')
-        self.nike_webhooks = import_webhooks('nike')
-        self.snkrs_webhooks = import_webhooks('snkrs')
-
+        self.import_all_webhooks()
         self.webhook_logs = discord.SyncWebhook.from_url("https://discord.com/api/webhooks/1021259923516043314/d67D6x8V-kbGtX4xyVkf0-TlCNDJZbZkZYw3jBkdRJvWUV3BagM6mLabs839H6P-94sR")
+
+    def import_all_webhooks(self):
+        self.shopify_webhooks = import_webhooks('Shopify')
+        self.footlocker_webhooks = import_webhooks('Footlocker')
+        self.supreme_webhooks = import_webhooks('Supreme')
+        self.nike_webhooks = import_webhooks('Nike')
+        self.snkrs_webhooks = import_webhooks('SNKRS')
 
     def send_alert_shopify(self, title, link, state, sizes, img, color=0xf705cb):
         embed_var = discord.Embed(title=title, color=color, url=link)

@@ -4,6 +4,7 @@ import time
 
 class monitor_thread:
     def __init__(self, ShopifyMonitors, NikeSNKRSMonitors, SupremeMonitor, FootlockerMonitor):
+        
         self.Shopify_Monitors = ShopifyMonitors
         self.NikeSNKRS_Monitors = NikeSNKRSMonitors
         self.Supreme_Monitor = SupremeMonitor
