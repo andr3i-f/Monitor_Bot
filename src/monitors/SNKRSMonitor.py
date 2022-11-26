@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import random
+from fp.fp import FreeProxy
 
 import webhooks
 
@@ -16,6 +17,8 @@ class SNKRSMonitor:
         self.link = f"https://api.nike.com/product_feed/threads/v3/?anchor={self.anchor}&count=50&filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28010794e5-35fe-4e32-aaff-cd2c74f89d61%29&filter=exclusiveAccess%28true%2Cfalse%29"
         
         self.set_up_flag = True
+        self.blocked_flag = False
+        self.timeout_timer = 0
 
         self.current_products = []
         self.previous_products = []
@@ -28,9 +31,28 @@ class SNKRSMonitor:
         self.current_products = []
 
         while self.anchor < 160:
-            self.link = f"https://api.nike.com/product_feed/threads/v3/?anchor={self.anchor}&count=50&filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28010794e5-35fe-4e32-aaff-cd2c74f89d61%29&filter=exclusiveAccess%28true%2Cfalse%29"
-            headers = {'User-Agent': random.choice(self.user_agents)}
-            req_url = requests.get(self.link, headers=headers)
+
+            if not self.blocked_flag:
+                self.link = f"https://api.nike.com/product_feed/threads/v3/?anchor={self.anchor}&count=50&filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28010794e5-35fe-4e32-aaff-cd2c74f89d61%29&filter=exclusiveAccess%28true%2Cfalse%29"
+                headers = {'User-Agent': random.choice(self.user_agents)}
+                req_url = requests.get(self.link, headers=headers)
+
+                if req_url.status_code != 200:
+                    self.blocked_flag = True
+                    self.timeout_timer = time.time()
+            
+            if self.blocked_flag:
+                while True:
+                    headers = {'User-Agent': random.choice(self.user_agents)}
+                    proxies = {'https': FreeProxy(rand=True, country_id=['US']).get()}
+                    self.link = f"https://api.nike.com/product_feed/threads/v3/?anchor={self.anchor}&count=50&filter=marketplace%28US%29&filter=language%28en%29&filter=channelId%28010794e5-35fe-4e32-aaff-cd2c74f89d61%29&filter=exclusiveAccess%28true%2Cfalse%29"
+                    req_url = requests.get(self.link, headers=headers, proxies=proxies)
+
+                    if req_url.status_code == 200:
+                        break
+                
+                if time.time() - self.timeout_timer > 360:
+                    self.blocked_flag = False
 
             all_info = json.loads(req_url.text)['objects']
 

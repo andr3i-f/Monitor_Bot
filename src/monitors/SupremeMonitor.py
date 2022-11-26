@@ -34,8 +34,29 @@ class SupremeMonitor:
         """Gets all current products from supremenewyork.com/shop/all"""
 
         self.current_items = []
-        headers = {'User-Agent' : random.choice(self.user_agents)}
-        req_url = requests.get(f"{self.url}", headers=headers)
+
+        if not self.blocked:
+            headers = {'User-Agent' : random.choice(self.user_agents)}
+            req_url = requests.get(f"{self.url}", headers=headers)
+
+            if req_url.status_code != 200:
+                self.blocked = True
+                self.timeout_timer = time.time()
+        
+        if self.blocked:
+            while True:
+                headers = {'User-Agent' : random.choice(self.user_agents)}
+                proxies = {'https' : FreeProxy(rand=True, country_id=['US']).get()}
+                req_url = requests.get(self.url, headers=headers, proxies=proxies)
+
+                if req_url.status_code == 200:
+                    break
+            
+            if time.time() - self.timeout_timer > 360:
+                self.blocked = False
+
+
+
         soup = BeautifulSoup(req_url.text, features='lxml')
 
         soup = soup.find("ul", class_="turbolink_scroller")

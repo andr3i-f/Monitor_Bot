@@ -25,7 +25,7 @@ class monitor_thread:
                 #print(f" done with {shopify_monitor.name} \n")
 
 
-        print(f" exiting Shopify thread ")
+        print(f"\n exiting Shopify thread ")
 
     def Nike_SNKRS_Thread(self):
 
@@ -35,7 +35,7 @@ class monitor_thread:
                 #print(f" done with {nike_monitor.name} \n")
 
 
-        print(f" exiting NIKE/SNKRS thread ")
+        print(f"\n exiting NIKE/SNKRS thread ")
 
 
     def Supreme_Thread(self):
@@ -44,7 +44,7 @@ class monitor_thread:
             self.Supreme_Monitor.search_wanted_items()
             #print(f" done with {self.Supreme_Monitor.name} \n")
 
-        print(f" exiting Supreme thread ")
+        print(f"\n exiting Supreme thread ")
 
 
     def Footlocker_Thread(self):

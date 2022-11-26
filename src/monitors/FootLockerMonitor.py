@@ -43,14 +43,25 @@ class FootLockerMonitor:
         self.idx = 0
         for api in self.api_urls:
             self.current_items = []
-            headers = {'User-Agent':random.choice(self.user_agents)}
+
+            if not self.blocked:
+                headers = {'User-Agent':random.choice(self.user_agents)}
+                req_url = requests.get(api, headers=headers)
+
+                if req_url.status_code == 529:
+                    return 0  # Splash page up, update webhooks
+
+                if req_url.status_code != 200:
+                    self.blocked = True
             
-            req_url = requests.get(api, headers=headers)
+            if self.blocked:
+                headers = {'User-Agents': random.choice(self.user_agents)}
+                proxies = {'https': FreeProxy(rand=True, country_id=['US']).get()}
+                req_url = requests.get(api, headers=headers, proxies=proxies)
 
-            #print(req_url.status_code)
+                if time.time() - self.timeout_timer > 360:  # Switch away from free proxies
+                    self.blocked = False
 
-            if (req_url.status_code == 529):
-                return 0
 
             print(f"Footlocker Code = {req_url.status_code}")
 
