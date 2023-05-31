@@ -1,6 +1,7 @@
 # A1 Monitor
 
 ## Description
+A python based application that uses the requests library to parse and store HTML data from popular commerce websites. The application then compares the data to check for any changes, and if there are any updates, it will broadcast messages via Discord webhooks with the appropriate information.
 
 ## How To Run
 1. In the terminal run `python src/main.py` to start the main program.
