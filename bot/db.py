@@ -20,11 +20,6 @@ class database:
     def __init__(self):
         self.tables = ['Shopify', 'Footlocker', 'Supreme', 'Nike', 'SNKRS']
 
-        """ self.host = "containers-us-west-58.railway.app"
-        self.user = "root"
-        self.passwd = "zEUpUIRj1tMUO9Hzg89M"
-        self.database = "railway"""
-
         self.host = "localhost"
         self.user = "root"
         self.passwd = "root"
