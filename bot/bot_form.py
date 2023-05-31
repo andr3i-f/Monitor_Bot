@@ -7,7 +7,7 @@ import mysql.connector
 import json
 import time
 
-secret = "MTAyMTIyMDQ1Mzc1NjQ1Njk3MA.GX9KPz.cGUUchaSR1ldDQaGgUdQzFtACKQ3PtIz5Meefs"
+secret = "secret token"
 guild_id = 1021219582247178260
 membership_role = "1043673145074253875"
 
